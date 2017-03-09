@@ -27,6 +27,14 @@ const BirthdayInput = React.createClass({
 		}
 	},
 	handleResultClick(event){
+		// enable vibration support
+		navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+		// vibration API supported
+		if (navigator.vibrate) {
+		    navigator.vibrate(20);
+		}
+
+
 		event.preventDefault();
     	this.refs.submitButton.classList.add('button--active');
     	setTimeout((function() {
