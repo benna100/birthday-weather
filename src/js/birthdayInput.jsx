@@ -11,6 +11,12 @@ const BirthdayInput = React.createClass({
 		};
 	},
 	handleChange(event){
+		// enable vibration support
+		navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+		// vibration API supported
+		if (navigator.vibrate) {
+		    navigator.vibrate(20);
+		}
 		let clickedButtons = this.state.clickedButtons;
 		clickedButtons[event.target.className] = 1;
 		this.setState(
@@ -27,13 +33,6 @@ const BirthdayInput = React.createClass({
 		}
 	},
 	handleResultClick(event){
-		// enable vibration support
-		navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-		// vibration API supported
-		if (navigator.vibrate) {
-		    navigator.vibrate(20);
-		}
-
 
 		event.preventDefault();
     	this.refs.submitButton.classList.add('button--active');
