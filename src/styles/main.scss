@@ -135,11 +135,12 @@ h1 {
     cursor: pointer;
 }
 
-.submit-button:hover {
+body:not(.touch) .submit-button:hover {
     margin-top: 15px;
     height: 55px;
     border-bottom: 13px solid #4228c7;
 }
+
 
 .submit-button:active {
     margin-top: 20px;
