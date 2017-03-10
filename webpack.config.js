@@ -26,7 +26,7 @@ module.exports = {
             loader: 'handlebars'
         }, {
             test: /\.css$/,
-            loaders: ['style-loader', 'css-loader?importLoaders=1'],
+            loaders: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader'],
             exclude: ['node_modules']
         }, {
             test: /\.scss$/,
@@ -58,23 +58,6 @@ module.exports = {
             title: 'Intro to Webpack',
             template: 'src/index.html'
         }),
-
-        // new webpack.HotModuleReplacementplugin(),
-        /*
-        new UglifyJsPlugin({
-            beautify: false,
-            mangle: { screw_ie8: true },
-            compress: { screw_ie8: true, warnings: false },
-            comments: false
-        }),
-        */
-        /*
-                new CommonsChunkPlugin({
-                    name: "vendor",
-                    file: "vendor.bundle.js",
-                    minChunks: Infinity
-                })
-                */
     ],
     devtool: 'source-map',
     devServer: {

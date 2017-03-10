@@ -1,0 +1,19 @@
+{
+    "extends": "airbnb",
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "import"
+    ],
+    "globals": {
+        "document": true,
+        "foo": true,
+        "window": true,
+        "navigator": true
+    },
+    "rules": {
+       "indent": ["error", 4, {
+            "SwitchCase": 1
+        }] 
+    }   
+}

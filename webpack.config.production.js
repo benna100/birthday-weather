@@ -13,7 +13,7 @@ module.exports = {
     devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
     output: {
         path: path.join(__dirname, "dist"),
-        filename: 'bundle.min.js'
+        filename: 'bundle.[hash].min.js'
     },
     module: {
         loaders: [{
@@ -29,7 +29,7 @@ module.exports = {
             loader: 'handlebars'
         }, {
             test: /\.css$/,
-            loaders: ['style-loader', 'css-loader?importLoaders=1'],
+            loaders: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader'],
             exclude: ['node_modules']
         }, {
             test: /\.scss$/,
@@ -57,7 +57,6 @@ module.exports = {
         }]
     },
     plugins: [
-        // new webpack.HotModuleReplacementplugin(),
         new UglifyJsPlugin({
             beautify: false,
             mangle: { screw_ie8: true },

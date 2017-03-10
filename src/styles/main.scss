@@ -141,7 +141,6 @@ body:not(.touch) .submit-button:hover {
     border-bottom: 13px solid #4228c7;
 }
 
-
 .submit-button:active {
     margin-top: 20px;
     height: 50px;
@@ -167,8 +166,7 @@ body:not(.touch) .submit-button:hover {
     margin: 10px 0px 5px 0px;
 }
 
-
-.city-selector{
+.city-selector {
     display: block;
     color: black;
     background-color: white;
@@ -181,13 +179,21 @@ body:not(.touch) .submit-button:hover {
     margin-right: 10px;
 }
 
-.city-selector--active{
+.city-selector--active {
     background-color: #53f;
     color: white;
     border: none;
 }
 
-
-a{
+a {
     color: black;
+}
+
+a,
+button,
+.myelements {
+    -ms-touch-action: manipulation;
+    /* IE10  */
+    touch-action: manipulation;
+    /* IE11+ */
 }
