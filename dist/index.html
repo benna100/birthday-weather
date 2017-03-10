@@ -12,13 +12,24 @@
         .loader-text{
             text-align: center;
         }
+        #start-button-container{
+            top: 40px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 90px;
+        }
         .ground-and-house{
-            width: 80%;
+            width: 90%;
             max-width: 500px;
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -35%);
+        }
+        @media only screen and (max-width : 500px) {
+
         }
         .cloud1{
             width: 200px;
@@ -42,12 +53,35 @@
             transform: translateX(-100%);
             transition: transform linear 5s;
         }
+        @media only screen and (max-width : 500px) {
+            .cloud1{
+                width: 150px;
+                top: 25%;
+            }
+            .cloud2{
+                width: 110px;
+                top: 30%;
+            }
+            .cloud3{
+                width: 180px;
+                top: 34%;
+            }
+        }
+
         .sun {
             width: 250px;
             position: absolute;
             top: 30px;
             right: 30px;
         }
+        @media only screen and (max-width : 500px) {
+            .sun {
+                width: 150px;
+                top: 150px;
+                right: 0px;
+            }
+        }
+
         @keyframes cloud-1-animation {
           0% {
             transform: translateX(-200px);
@@ -59,18 +93,11 @@
             transform: translateX(-200px);
           }
         }
-        #start-button-container{
-            padding-top: 40px;
-        }
 
         .start-button {
             transition: opacity 0.2s ease;
             width: 200px;
             height: 50px;
-            margin-bottom: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 20px;
             display: block;
             color: white;
             background-color: #53f;
@@ -265,5 +292,5 @@ body:not(.touch)
         }, 3400);
         
     </script>
-<script type="text/javascript" src="bundle.a788c536eabe6ca3c04b.min.js"></script></body>
+<script type="text/javascript" src="bundle.812e0e19210b63fef3f5.min.js"></script></body>
 </html>
