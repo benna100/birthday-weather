@@ -2,6 +2,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 var path = require("path");
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -70,6 +71,10 @@ module.exports = {
                 js: [ "bundle.js"],
             }
         }),
+        new CopyWebpackPlugin([
+            // Copy directory contents to {output}/to/directory/
+            { from: 'src/svg', to: 'svg' },
+        ]),
         
         /*
                 new CommonsChunkPlugin({
