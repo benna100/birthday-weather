@@ -34,6 +34,10 @@ header {
     height: 300px;
     overflow: hidden;
 }
+.birthdaysInput{
+    padding-bottom: 10px;
+
+}
 
 .header__bg {
     position: absolute;
@@ -77,44 +81,46 @@ h1 {
     padding: 20px;
     background-color: white;
     position: relative;
-    /* display: block; */
-    /* overflow: auto; */
+    background-color: #eeeeee;
     border-radius: 3px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, .3), 0 10px 10px rgba(0, 0, 0, .22);
 }
-
 .birthdaysInput {
     overflow: auto;
     margin: 10px 0px 10px;
+
     textarea:focus,
     input:focus,
     select:focus {
         outline: none;
     }
     .dayInput {
-        width: 50px;
+        width: calc(30% - 10px);
+        margin-right: 10px;
     }
     input {
+        box-sizing:content-box;
         padding-left: 10px;
         height: 30px;
         border-radius: 3px;
-        border: 2px lightgrey solid;
+        border: 1px black solid;
     }
     select {
+        box-sizing:content-box;
         padding-left: 10px;
         height: 35px;
-        width: 100px;
+        width: calc(30% - 10px);
         border-radius: 3px;
-        border: 2px lightgrey solid;
-        margin: 0px 20px 0px 20px;
+        border: 1px black solid;
+        margin-right: 10px;
     }
     .yearInput {
-        width: 80px;
+        width: calc(30% - 10px);
+        margin-right: 10px;
     }
-    input:focus,
-    select:focus {
-        transition: all 0.2s ease;
-        border: 2px #53f solid;
+    .city-chooser-text{
+        margin: 30px 0px 10px 0px;
+        display: block;
     }
 }
 
@@ -127,35 +133,39 @@ h1 {
     margin-right: auto;
     margin-top: 20px;
     display: block;
-    color: white;
-    background-color: #53f;
+    color: #363636;
+    font-weight: 800;
+    background-color: rgb(253, 228, 58);
     border: none;
     border-radius: 3px;
-    border-bottom: 8px solid #4228c7;
+    border-bottom: 8px solid rgb(199, 179, 48);
     cursor: pointer;
 }
 
-body:not(.touch) .submit-button:hover {
+/*
+ body:not(.touch) 
+*/
+.submit-button:hover {
     margin-top: 15px;
     height: 55px;
-    border-bottom: 13px solid #4228c7;
+    border-bottom: 13px solid rgb(199, 179, 48);
 }
 
 .submit-button:active {
     margin-top: 20px;
     height: 50px;
-    border-bottom: 4px solid #4228c7;
+    border-bottom: 4px solid rgb(199, 179, 48);
 }
 
 .button--active {
     margin-top: 20px;
     height: 50px;
-    border-bottom: 4px solid #4228c7;
+    border-bottom: 4px solid rgb(199, 179, 48);
 }
 
 .submit-button:disabled {
     opacity: 0.2;
-    border-bottom: 8px solid #4228c7 !important;
+    border-bottom: 8px solid rgb(199, 179, 48) !important;
     height: 50px !important;
     margin-top: 20px;
     cursor: inherit;
@@ -177,11 +187,12 @@ body:not(.touch) .submit-button:hover {
     border: 1px black solid;
     float: left;
     margin-right: 10px;
+    width: calc(50% - 10px);
 }
 
 .city-selector--active {
-    background-color: #53f;
-    color: white;
+    background-color: rgb(253, 228, 58);
+    color: #363636;
     border: none;
 }
 

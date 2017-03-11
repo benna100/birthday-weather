@@ -93,8 +93,7 @@ const App = React.createClass({
         }
 
         const dataForTable = birthdaysEachYear.map((birthday) =>{
-            console.log(birthday);
-            let weatherCondition;;
+            let weatherCondition;
             let weatherLink;
             if(this.selectedCity == 'copenhagen'){
                 weatherLink = `https://www.wunderground.com/history/airport/EKCH/${birthday.getFullYear()}/${addZero(monthIndex)}/${addZero(day)}/DailyHistory.html?req_city=Copenhagen&req_statename=Denmark`; 
@@ -141,12 +140,6 @@ const App = React.createClass({
     render() {
         return (
             <div className="main-container">
-                <header>
-                    <div className="header__bg"></div>
-                    <h1>
-                        føsdagsvejret
-                    </h1>
-                </header>
                 <div className="inputAndResultContainer">
                     <BirthdayInput handleResultClick={this.seeResults}/>
                     <div className="loader" style={this.state.showLoaderStyle}>
@@ -163,15 +156,28 @@ const App = React.createClass({
 
 export default App;
 
+
 render(
     <button className="start-button">
-        Start!
+        Se dem her!
     </button>
-    , document.getElementById('start-button-container'));
+    ,document.getElementsByClassName('start-button-container__button')[0]
+);
 
+
+const bodyElement = document.getElementsByTagName('body')[0];
 document.getElementsByClassName('start-button')[0].addEventListener('click', function() {
+
+    document.getElementsByClassName('start-button')[0].classList.add('button--active');
+    setTimeout((function() {
+        document.getElementsByClassName('start-button')[0].classList.remove('button--active');
+    }).bind(this), 70);
+
     setTimeout(function() {
-        render(<App/>, document.getElementById('app'));
+        bodyElement.style.overflow = 'auto';
+        bodyElement.style.overflowX = 'hidden';
+        render(<App/>, document.getElementsByClassName('app-container')[0]);
+
         }, 200);
 }, false);
 
