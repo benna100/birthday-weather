@@ -72,12 +72,12 @@ h1 {
 }
 
 .inputAndResultContainer {
-    max-width: 500px;
+    max-width: 600px;
     margin: 0px auto;
     padding: 20px;
     background-color: white;
     position: relative;
-    background-color: #7E8CD5;
+    background-color: #e8e8e8;
     border-radius: 3px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, .3), 0 10px 10px rgba(0, 0, 0, .22);
 }
@@ -112,6 +112,7 @@ h1 {
         border: 0;
     }
     select {
+        -webkit-appearance:none;
         box-sizing: border-box;
         padding-left: 10px;
         height: 30px;

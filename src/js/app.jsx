@@ -161,7 +161,7 @@ export default App;
 
 render(
     <button className="start-button">
-        Se dem her!
+        Lad os begynde!
     </button>
     ,document.getElementsByClassName('start-button-container__button')[0]
 );
