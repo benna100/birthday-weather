@@ -8,7 +8,7 @@ import '../styles/weather-fonts/css/weather-icons.min.css';
 import BirthdayResult from './birthdayResult.jsx';
 */
 
-
+/*
 function isTouchDevice() {
     return 'ontouchstart' in window        // works on most browsers
       || navigator.maxTouchPoints;       // works on IE10/11 and Surface
@@ -18,7 +18,7 @@ function isTouchDevice() {
 if (isTouchDevice()) {
     document.getElementsByTagName('body')[0].classList.add('touch');
 }
-
+*/
 
 const App = React.createClass({
     getInitialState() {
@@ -165,7 +165,7 @@ render(
 );
 
 
-const bodyElement = document.getElementsByTagName('body')[0];
+//const bodyElement = document.getElementsByTagName('body')[0];
 document.getElementsByClassName('start-button')[0].addEventListener('click', function() {
 
     document.getElementsByClassName('start-button')[0].classList.add('button--active');
@@ -174,8 +174,8 @@ document.getElementsByClassName('start-button')[0].addEventListener('click', fun
     }).bind(this), 70);
 
     setTimeout(function() {
-        bodyElement.style.overflow = 'auto';
-        bodyElement.style.overflowX = 'hidden';
+        //bodyElement.style.overflow = 'auto';
+        //bodyElement.style.overflowX = 'hidden';
         render(<App/>, document.getElementsByClassName('app-container')[0]);
 
         }, 200);

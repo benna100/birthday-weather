@@ -95,27 +95,27 @@ h1 {
         outline: none;
     }
     .dayInput {
-        width: calc(30% - 10px);
+        width: calc(33% - 10px);
         margin-right: 10px;
     }
     input {
-        box-sizing:content-box;
+        box-sizing: border-box;
         padding-left: 10px;
         height: 30px;
         border-radius: 3px;
         border: 1px black solid;
     }
     select {
-        box-sizing:content-box;
+        box-sizing: border-box;
         padding-left: 10px;
         height: 35px;
-        width: calc(30% - 10px);
+        width: calc(33% - 10px);
         border-radius: 3px;
         border: 1px black solid;
         margin-right: 10px;
     }
     .yearInput {
-        width: calc(30% - 10px);
+        width: calc(33% - 10px);
         margin-right: 10px;
     }
     .city-chooser-text{

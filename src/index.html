@@ -15,8 +15,11 @@
             transition: box-shadow 0.2s ease;
         }
         body{
+            /*
+            width: 100%;
             overflow: hidden;
             overflow-x: hidden;
+            */
         }
         .drawing-container
         .loader-text{
@@ -157,7 +160,7 @@ body:not(.touch)
 
     </style>
 </head>
-<body class="none">
+<body>
   <div class="container">
     <div id="app">
         <div class="drawing-container">
@@ -352,11 +355,8 @@ body:not(.touch)
                 }, 6100);
             }
             cloud2Runner();
-        }, 2000);
+        }, 6000);
         
-        
-
-
         setTimeout(function() {
             function cloud3Runner() {
                 animateCloud(cloud3element, '5s');

@@ -27,7 +27,6 @@ const BirthdayResult = React.createClass({
 		return parseInt(goodBoyDays/this.weatherConditionDays * 100);
 	},
 	noMoreData(){
-		console.log(this.props.setDataForTable.length);
 		if(this.props.setDataForTable.length > 20){
 			return (
 				<div className="no-more-data">
