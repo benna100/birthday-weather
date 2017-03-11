@@ -157,6 +157,8 @@ const App = React.createClass({
 export default App;
 
 
+
+
 render(
     <button className="start-button">
         Se dem her!
@@ -178,7 +180,7 @@ document.getElementsByClassName('start-button')[0].addEventListener('click', fun
         bodyElement.style.overflowX = 'hidden';
         render(<App/>, document.getElementsByClassName('app-container')[0]);
 
-        }, 200);
+        }, 100);
 }, false);
 
 
