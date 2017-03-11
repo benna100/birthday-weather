@@ -44,7 +44,7 @@ const BirthdayInput = React.createClass({
     },
     render(){
         return (
-          <div>
+          <div className="birthday-input">
             <span className="birthday-date-text">
                 Jeg er <b>født</b> den
             </span>
