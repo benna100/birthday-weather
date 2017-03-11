@@ -83,6 +83,11 @@
                 max-width: 600px;
                 margin: 0 auto 90px auto;
             }
+            @media only screen and (max-width : 500px) {
+                .drawing-container{
+                    height: 160px;
+                }
+            }
             .drawing-container
             .loader-text{
                 text-align: center;
@@ -126,9 +131,6 @@
                 
 
             }
-            @media only screen and (max-width : 500px) {
-
-            }
             .cloud-wrapper{
                 width: 100%;
                 overflow-x: hidden;
@@ -136,6 +138,13 @@
                 position: absolute;
                 top: 20px;
                 height: 230px;
+            }
+
+            @media only screen and (max-width : 500px) {
+                .cloud-wrapper{
+                    top: 20px;
+                    height: 140px;
+                }
             }
             .cloud1{
                 width: 140px;
@@ -161,21 +170,25 @@
             }
             @media only screen and (max-width : 500px) {
                 .cloud1{
-                    width: 150px;
-                    top: 25%;
+                    width: 10px;
                 }
                 .cloud2{
-                    width: 110px;
-                    top: 30%;
+                    width: 60px;
                 }
                 .cloud3{
-                    width: 180px;
-                    top: 34%;
+                    width: 120px;
                 }
             }
             .svg-frame{
-                width: 660px;
+                width: 100%;
+                max-width: 660px;
                 margin-top: -40px;
+            }
+
+            @media only screen and (max-width : 500px) {
+                .svg-frame{
+                    margin-top: 0px;
+                }
             }
 
             .sun {
@@ -186,8 +199,9 @@
             }
             @media only screen and (max-width : 500px) {
                 .sun {
-                    width: 150px;
-                    top: 150px;
+                    width: 103px;
+                    position: absolute;
+                    top: 10px;
                     right: 0px;
                 }
             }

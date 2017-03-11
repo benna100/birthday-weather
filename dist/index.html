@@ -76,26 +76,37 @@
             }
             .drawing-container{
                 position: relative;
-                width: 100%;
-                height: 100vh;
+                /* width: 100%; */
+                /* height: 100vh; */
+                width: 90%;
+                height: 300px;
+                max-width: 600px;
+                margin: 0 auto 90px auto;
+            }
+            @media only screen and (max-width : 500px) {
+                .drawing-container{
+                    height: 160px;
+                }
             }
             .drawing-container
             .loader-text{
                 text-align: center;
             }
             .start-button-container{
-                position: absolute;
-                top: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 100%;
+                margin-bottom: 60px;
             }
             .start-button-container__title{
                 font-size: 2rem;
                 text-align: center;
-                width: 400px;
                 width: 100%;
-                margin-bottom: 40px;
+                max-width: 600px;
+                margin-top: 40px;
+                margin-bottom: 80px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .loader-text{
+                text-align: center;
             }
             .ground-and-house{
                 width: 90%;
@@ -114,14 +125,10 @@
                 margin: 325px auto;
                 */
                 width: 100%;
-                position: absolute;
-                top: 37%;
                 z-index: 1000;
+                margin: 0 auto;
                 margin-bottom: 100px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            @media only screen and (max-width : 500px) {
+                
 
             }
             .cloud-wrapper{
@@ -129,11 +136,18 @@
                 overflow-x: hidden;
                 overflow-y: hidden;
                 position: absolute;
-                top: 130px;
+                top: 20px;
                 height: 230px;
             }
+
+            @media only screen and (max-width : 500px) {
+                .cloud-wrapper{
+                    top: 20px;
+                    height: 140px;
+                }
+            }
             .cloud1{
-                width: 200px;
+                width: 140px;
                 position: absolute;
                 top: 20%;
                 transform: translateX(-100%);
@@ -141,14 +155,14 @@
             }
 
             .cloud2{
-                width: 160px;
+                width: 100px;
                 position: absolute;
                 top: 24%;
                 transform: translateX(-100%);
                 transition: transform linear 6s;
             }
             .cloud3{
-                width: 234px;
+                width: 180px;
                 position: absolute;
                 top: 25%;
                 transform: translateX(-100%);
@@ -156,29 +170,38 @@
             }
             @media only screen and (max-width : 500px) {
                 .cloud1{
-                    width: 150px;
-                    top: 25%;
+                    width: 10px;
                 }
                 .cloud2{
-                    width: 110px;
-                    top: 30%;
+                    width: 60px;
                 }
                 .cloud3{
-                    width: 180px;
-                    top: 34%;
+                    width: 120px;
+                }
+            }
+            .svg-frame{
+                width: 100%;
+                max-width: 660px;
+                margin-top: -40px;
+            }
+
+            @media only screen and (max-width : 500px) {
+                .svg-frame{
+                    margin-top: 0px;
                 }
             }
 
             .sun {
-                width: 250px;
+                width: 200px;
                 position: absolute;
-                top: 30px;
-                right: 30px;
+                top: 0px;
+                right: -21px;
             }
             @media only screen and (max-width : 500px) {
                 .sun {
-                    width: 150px;
-                    top: 150px;
+                    width: 103px;
+                    position: absolute;
+                    top: 10px;
                     right: 0px;
                 }
             }
@@ -239,18 +262,11 @@
     </head>
     <body>
         
+        <div class="start-button-container__title">
+            Se din fødselsdag's solskinsdage!
+        </div>
         <div class="drawing-container">
-            <div class="start-button-container">
-                <div class="start-button-container__title">
-                    Din fødselsdag's solskinsdage
-                </div>
-                <div class="start-button-container__button">
-                    <div class="loader-text">
-                        Loader din applikation
-                    </div>
-                </div>
-            </div>
-            <div class="app-container clearfix"></div>
+            <img src="svg/frame.svg" class="svg-frame" alt="Kiwi standing on oval">
             <div class="ground-and-house">
                 <img src="svg/intro-drawing.svg" alt="Kiwi standing on oval">
             </div>
@@ -270,9 +286,21 @@
             </div>
             <div class="benjamin-name">
                 <img src="svg/benjamin-name.svg" alt="Kiwi standing on oval">
-                
             </div>
         </div>
+
+
+        <div class="start-button-container">
+            <div class="start-button-container__button">
+                <div class="loader-text">
+                    Loader din applikation
+                </div>
+            </div>
+        </div>
+
+        <div class="app-container clearfix"></div>
+
+
         
         <script type="text/javascript">
             
@@ -323,5 +351,5 @@
             
             
         </script>
-    <script type="text/javascript" src="bundle.646462da2d5c5ac4d542.min.js"></script></body>
+    <script type="text/javascript" src="bundle.4c9e2bfd044cc4a0e667.min.js"></script></body>
 </html>
