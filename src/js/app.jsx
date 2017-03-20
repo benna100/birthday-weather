@@ -139,7 +139,7 @@ const App = React.createClass({
     },
     render() {
         return (
-            <div className="main-container">
+            <div className="main-container" id="main-container">
                 <div className="inputAndResultContainer">
                     <BirthdayInput handleResultClick={this.seeResults}/>
                     <div className="loader" style={this.state.showLoaderStyle}>
@@ -169,18 +169,107 @@ render(
 
 const bodyElement = document.getElementsByTagName('body')[0];
 document.getElementsByClassName('start-button')[0].addEventListener('click', function() {
-
     document.getElementsByClassName('start-button')[0].classList.add('button--active');
     setTimeout((function() {
         document.getElementsByClassName('start-button')[0].classList.remove('button--active');
     }).bind(this), 70);
 
+
+    render(<App/>, document.getElementsByClassName('app-container')[0]);
+    window.EPPZScrollTo.scrollVerticalToElementById('main-container', 0);
     setTimeout(function() {
         bodyElement.style.overflow = 'auto';
         bodyElement.style.overflowX = 'hidden';
-        render(<App/>, document.getElementsByClassName('app-container')[0]);
-
         }, 100);
+
 }, false);
 
 
+
+window.EPPZScrollTo = {
+    /**
+     * Helpers.
+     */
+    documentVerticalScrollPosition: function() {
+        if (self.pageYOffset) return self.pageYOffset; // Firefox, Chrome, Opera, Safari.
+        if (document.documentElement && document.documentElement.scrollTop) return document.documentElement.scrollTop; // Internet Explorer 6 (standards mode).
+        if (document.body.scrollTop) return document.body.scrollTop; // Internet Explorer 6, 7 and 8.
+        return 0; // None of the above.
+    },
+
+    viewportHeight: function() {
+        return (document.compatMode === "CSS1Compat") ? document.documentElement.clientHeight : document.body.clientHeight;
+    },
+
+    documentHeight: function() {
+        return (document.height !== undefined) ? document.height : document.body.offsetHeight;
+    },
+
+    documentMaximumScrollPosition: function() {
+        console.log(this.documentHeight());
+        console.log(this.viewportHeight());
+        return this.viewportHeight() - this.documentHeight();
+    },
+
+    elementVerticalClientPositionById: function(id) {
+        var element = document.getElementById(id);
+        var rectangle = element.getBoundingClientRect();
+        return rectangle.top;
+    },
+
+    /**
+     * Animation tick.
+     */
+    scrollVerticalTickToPosition: function(currentPosition, targetPosition) {
+
+        var filter = 0.1;
+        var fps = 60;
+        var difference = parseFloat(targetPosition) - parseFloat(currentPosition);
+
+        // Snap, then stop if arrived.
+        var arrived = (Math.abs(difference) <= 0.5);
+        if (arrived) {
+            // Apply target.
+            scrollTo(0.0, targetPosition);
+            return;
+        }
+
+        // Filtered position.
+        currentPosition = (parseFloat(currentPosition) * (1.0 - filter)) + (parseFloat(targetPosition) * filter);
+
+        // Apply target.
+        scrollTo(0.0, Math.round(currentPosition));
+
+        // Schedule next tick.
+        setTimeout("EPPZScrollTo.scrollVerticalTickToPosition(" + currentPosition + ", " + targetPosition + ")", (1000 / fps));
+    },
+
+    /**
+     * For public use.
+     *
+     * @param id The id of the element to scroll to.
+     * @param padding Top padding to apply above element.
+     */
+    scrollVerticalToElementById: function(id, padding) {
+        var element = document.getElementById(id);
+        if (element == null) {
+            console.warn('Cannot find element with id \'' + id + '\'.');
+            return;
+        }
+
+        var targetPosition = this.documentVerticalScrollPosition() + this.elementVerticalClientPositionById(id) - padding;
+        //console.log(targetPosition);
+        var currentPosition = this.documentVerticalScrollPosition();
+        //console.log(currentPosition);
+        // Clamp.
+        /*
+        var maximumScrollPosition = this.documentMaximumScrollPosition();
+        if (targetPosition > maximumScrollPosition) {
+            console.log(8);
+            targetPosition = maximumScrollPosition;
+        }
+        */
+        // Start animation.
+        this.scrollVerticalTickToPosition(currentPosition, targetPosition);
+    }
+};
