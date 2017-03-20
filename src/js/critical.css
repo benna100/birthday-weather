@@ -1,0 +1,207 @@
+button:focus, input:focus, select:focus{
+                /*
+                outline: solid 1px rgb(216, 41, 51);
+                */
+                outline: 0;
+                box-shadow: 0 5px 5px rgba(0, 0, 0, .3), 0 5px 5px rgba(0, 0, 0, .22);
+                transition: box-shadow 0.2s ease;
+            }
+            html{
+
+                height: 100%;
+                /*
+                width: 100%;
+                */
+            }
+            body{
+
+                height: 100%;
+                /*
+                width: 100%;
+                overflow: hidden;
+                overflow-x: hidden;
+                */
+            }
+            .drawing-container{
+                position: relative;
+                /* width: 100%; */
+                /* height: 100vh; */
+                width: 90%;
+                height: 300px;
+                max-width: 600px;
+                margin: 0 auto 90px auto;
+            }
+            @media only screen and (max-width : 500px) {
+                .drawing-container{
+                    height: 160px;
+                }
+            }
+            .drawing-container
+            .loader-text{
+                text-align: center;
+            }
+            .start-button-container{
+                margin-bottom: 60px;
+            }
+            .start-button-container__title{
+                font-size: 2rem;
+                text-align: center;
+                width: 100%;
+                max-width: 600px;
+                margin-top: 40px;
+                margin-bottom: 80px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .loader-text{
+                text-align: center;
+            }
+            .ground-and-house{
+                width: 90%;
+                max-width: 500px;
+                position: absolute;
+                left: 50%;
+                top: 39%;
+                transform: translate(-50%);
+            }
+            .app-container{
+                /*
+                width: 90%;
+                max-width: 500px;
+                z-index: 1000;
+                position: relative;
+                margin: 325px auto;
+                */
+                width: 100%;
+                z-index: 1000;
+                margin: 0 auto;
+                margin-bottom: 100px;
+                
+
+            }
+            .cloud-wrapper{
+                width: 100%;
+                overflow-x: hidden;
+                overflow-y: hidden;
+                position: absolute;
+                top: 20px;
+                height: 230px;
+            }
+
+            @media only screen and (max-width : 500px) {
+                .cloud-wrapper{
+                    top: 20px;
+                    height: 140px;
+                }
+            }
+            .cloud1{
+                width: 140px;
+                position: absolute;
+                top: 20%;
+                transform: translateX(-100%);
+                transition: transform linear 8s;
+            }
+
+            .cloud2{
+                width: 100px;
+                position: absolute;
+                top: 24%;
+                transform: translateX(-100%);
+                transition: transform linear 6s;
+            }
+            .cloud3{
+                width: 180px;
+                position: absolute;
+                top: 25%;
+                transform: translateX(-100%);
+                transition: transform linear 5s;
+            }
+            @media only screen and (max-width : 500px) {
+                .cloud1{
+                    width: 10px;
+                }
+                .cloud2{
+                    width: 60px;
+                }
+                .cloud3{
+                    width: 120px;
+                }
+            }
+            .svg-frame{
+                width: 100%;
+                max-width: 660px;
+                margin-top: -40px;
+            }
+
+            @media only screen and (max-width : 500px) {
+                .svg-frame{
+                    margin-top: 0px;
+                }
+            }
+
+            .sun {
+                width: 200px;
+                position: absolute;
+                top: 0px;
+                right: -21px;
+            }
+            @media only screen and (max-width : 500px) {
+                .sun {
+                    width: 103px;
+                    position: absolute;
+                    top: 10px;
+                    right: 0px;
+                }
+            }
+            .benjamin-name{
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                width: 270px;
+            }
+    /*
+            @keyframes cloud-1-animation {
+              0% {
+                transform: translateX(-200px);
+              }
+              50% {
+                transform: translateX(100%) translateX(200px);
+              }
+              100% {
+                transform: translateX(-200px);
+              }
+            }
+
+            */
+
+            .start-button {
+                transition: opacity 0.2s ease;
+                width: 200px;
+                height: 50px;
+                display: block;
+                color: #363636;
+                background-color: rgb(253, 228, 58);
+                border: none;
+                border-radius: 3px;
+                border-bottom: 8px solid rgb(199, 179, 48);
+                cursor: pointer;
+                margin-left: auto;
+                margin-right: auto;
+                font-weight: 800;
+            }
+    /*
+    body:not(.touch) 
+    */
+            .start-button:hover {
+                margin-top: -5px;
+                height: 55px;
+                border-bottom: 12px solid rgb(199, 179, 48);
+                box-shadow: none;
+            }
+
+            .start-button:active {
+                margin-top: 20px;
+                height: 50px;
+                border-bottom: 4px solid rgb(199, 179, 48);
+                box-shadow: none;
+            }
