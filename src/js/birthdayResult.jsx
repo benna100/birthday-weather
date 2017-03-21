@@ -12,7 +12,7 @@ const BirthdayResult = React.createClass({
     },
     getSunshineDays() {
         return this.props.setDataForTable.filter((dateObject) => {
-            return dateObject.weatherCondition === 'Clear';
+            return dateObject.weatherCondition === 'Solskin';
         }).length;
     },
     getWeatherConditionDays() {
@@ -22,7 +22,7 @@ const BirthdayResult = React.createClass({
     },
     calculateSunshinePercentage() {
         const goodBoyDays = this.props.setDataForTable.filter((dateObject) => {
-            return dateObject.weatherCondition === 'Clear';
+            return dateObject.weatherCondition === 'Solskin';
         }).length;
 
         return parseFloat((goodBoyDays / this.getWeatherConditionDays()));
@@ -230,7 +230,7 @@ const BirthdayResult = React.createClass({
                 
                 <br/>
                 <br/>
-                <div class="table-container">
+                <div className="table-container">
                     <div className="table-container__your-weather">
                         Sådan har vejret været d. {`${this.props.formattedbirthdayDate}`}
                     </div>

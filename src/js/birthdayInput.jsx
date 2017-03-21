@@ -18,11 +18,11 @@ const BirthdayInput = React.createClass({
                 clickedButtons: clickedButtons
             }
         );
-        if(Object.keys(clickedButtons).length == 4){
+        if (Object.keys(clickedButtons).length === 4) {
             this.setState(
                 {
-                    buttonDisabled: true
-                }
+                    buttonDisabled: true,
+                },
             );
         }
     },

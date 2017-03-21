@@ -121,9 +121,20 @@ const App = React.createClass({
                 'Scattered Clouds': 'wi wi-day-cloudy'
             };
 
+            const weatherConditionTranslator = {
+                'Clear': 'Solskin',
+                'Mostly Cloudy': 'Overskyet',
+                'fog': 'Tåge',
+                'Rain': 'Regn',
+                'Partly Cloudy': 'Delvist skyet',
+                'Snow': 'Sen',
+                'Scattered Clouds': 'Få skyer',
+                
+            }
+
             return {
                 date: birthday,
-                weatherCondition: weatherCondition,
+                weatherCondition: weatherConditionTranslator[weatherCondition],
                 weatherIcon: weatherConditionIconMapper[weatherCondition],
                 weatherLink: weatherLink
             }

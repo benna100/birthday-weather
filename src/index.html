@@ -313,7 +313,7 @@
             </div>
             <div class="benjamin-name">
                 <a target="_blank" href="https://www.linkedin.com/in/benjamindalshughes/">
-                    <svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 121">
+                    <svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 121" height="50px">
                      <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
                      <g>
                       <title>background</title>
@@ -368,19 +368,27 @@
         function animateSvgWriting(){
             document.querySelector('.benjamin-name').style.display = 'block';
             let totalWaitInterval = 0;
-            [...document.querySelectorAll('.benjamin-name path')].forEach((path) => {
+            
+            function animateSvgPath(svgElement, length, wait){
+                setTimeout((function() {                
+                    svgElement.style.transition = 'stroke-dashoffset ' + (length / 200) + 's ease-in-out';
+                    svgElement.style.strokeDashoffset = '0';
+                }).bind(this), wait);
+            }
+            
+
+            var pathElements = document.querySelectorAll('.benjamin-name path');
+            for (var i = 0; i < pathElements.length; i++ ) {
+                var path = pathElements[i];
                 const randomInterval = 400;
                 totalWaitInterval += randomInterval;
                 const length = path.getTotalLength();
-                path.style.transition = path.style.WebkitTransition = 'none';
+                path.style.transition = 'none';
+                path.style.WebkitTransition = 'none';
                 path.style.strokeDasharray = length + ' ' + length;
                 path.style.strokeDashoffset = length;
-                setTimeout((() => {
-                    path.getBoundingClientRect();
-                    path.style.transition = 'stroke-dashoffset ' + length / 200 + 's ease-in-out';
-                    path.style.strokeDashoffset = '0';
-                }).bind(this), totalWaitInterval);
-            });
+                animateSvgPath(path, length, totalWaitInterval);
+            }
         }
 
         animateSvgWriting();
