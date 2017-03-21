@@ -117,7 +117,8 @@ const BirthdayResult = React.createClass({
 
         let sectors = calculateSectors(data);
         var newSVG = document.createElementNS( "http://www.w3.org/2000/svg","svg" );
-        newSVG.setAttributeNS(null, 'style', "width: "+data.size+"px; height: " + data.size+ "px");
+        newSVG.setAttributeNS(null, 'viewBox', '0 0 230 230');
+        newSVG.setAttributeNS(null, 'width', '100%');
         document.getElementsByClassName("circle-diagram__svg-element")[0].appendChild(newSVG)
 
 

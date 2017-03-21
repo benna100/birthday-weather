@@ -228,7 +228,7 @@ button,
 
 .sunshine-days{
     margin: 100px auto 100px auto;
-    width: 57%;
+    width: 320px;
     overflow: auto;
 }
 .sunshine-days__numbers{
@@ -237,10 +237,21 @@ button,
     float: left;
     margin-right: 20px;
 }
+@media only screen and (max-width : 400px) {
+    .sunshine-days__numbers{
+        margin-right: 10px;
+    }
+}
 .sunshine-days__text{
     font-size: 2em;
     float: left;
     margin-top: 5px;
+}
+@media only screen and (max-width : 400px) {
+    .sunshine-days__text{
+        font-size: 1.7rem;
+        margin-top: 9px;
+    }
 }
 
 .circle-diagram{
@@ -250,12 +261,25 @@ button,
     width: 230px;
 }
 
+@media only screen and (max-width : 500px) {
+    .circle-diagram{
+        width: 180px;
+    }
+}
+
 .right-arrow__text{
     position: absolute;
     right: -65px;
     top: 0px;
     text-align: center;
     font-size: 1.2em;
+}
+
+@media only screen and (max-width : 500px) {
+    .right-arrow__text{
+        right: -40px;
+        top: -20px;
+    }
 }
 
 
@@ -267,7 +291,11 @@ button,
     font-size: 1.2em;
 }
 
-
+@media only screen and (max-width : 500px) {
+    .left-arrow__text{
+        top: -20px;
+    }
+}
 
 .table-container{
     font-size: 1rem;
@@ -279,3 +307,13 @@ button,
     margin-bottom: 20px;
 }
 
+
+td{
+    vertical-align: middle;
+}
+
+
+.no-more-data{
+    margin-top: 20px;
+    text-align: center;
+}

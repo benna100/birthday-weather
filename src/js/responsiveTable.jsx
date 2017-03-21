@@ -8,7 +8,7 @@ const ResponsiveTable = React.createClass({
         this.setState({buttonDisabled: true});
     },
     renderRow(weatherDate, i){
-        if(weatherDate.date !== undefined){
+        if (weatherDate.date !== undefined) {
             return (
                 <tr key={i}>
                     <td>{weatherDate.date.getFullYear()}</td>

@@ -107,9 +107,13 @@ const App = React.createClass({
             if(formattedDate in this.weatherConditions){
                 weatherCondition = this.weatherConditions[formattedDate];
             }
-            if(weatherCondition == ''){
+            console.log(weatherCondition);
+            console.log(typeof weatherCondition);
+            if(typeof weatherCondition == 'undefined'){
                 weatherCondition = 'Ukendt';
             }
+
+            
             const weatherConditionIconMapper = {
                 'Rain': 'wi wi-rain',
                 'Snow': 'wi wi-snow',
@@ -118,20 +122,22 @@ const App = React.createClass({
                 'Clear': 'wi wi-day-sunny',
                 'fog': 'wi wi-fog',
                 'Partly Cloudy': 'wi wi-day-cloudy',
-                'Scattered Clouds': 'wi wi-day-cloudy'
+                'Scattered Clouds': 'wi wi-day-cloudy',
+                'Ukendt': 'wi-na',
             };
 
             const weatherConditionTranslator = {
                 'Clear': 'Solskin',
-                'Mostly Cloudy': 'Overskyet',
+                'Partly Cloudy': 'Pletvist skyet',
+                'Mostly Cloudy': 'Mest skyet',
+                'Scattered Clouds': 'Få skyer',
+                'Overcast': 'Overskyet',
                 'fog': 'Tåge',
                 'Rain': 'Regn',
-                'Partly Cloudy': 'Delvist skyet',
-                'Snow': 'Sen',
-                'Scattered Clouds': 'Få skyer',
-                
-            }
-
+                'Snow': 'Sne',
+                'Ukendt': 'Ukendt',
+            };
+            console.log(weatherConditionTranslator[weatherCondition]);
             return {
                 date: birthday,
                 weatherCondition: weatherConditionTranslator[weatherCondition],
