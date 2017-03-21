@@ -34,7 +34,6 @@ const BirthdayInput = React.createClass({
             this.refs.submitButton.classList.remove('button--active');
         }).bind(this), 70);
         this.props.handleResultClick(this.refs.dayInput, this.refs.monthInput, this.refs.yearInput, this.selectedCity);
-        window.EPPZScrollTo.scrollVerticalToElementById('birthday-result', 0);
     },
     citySelector(refName, event){
         event.preventDefault();

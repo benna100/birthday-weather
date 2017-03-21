@@ -228,14 +228,15 @@ button,
 
 .sunshine-days{
     margin: 100px auto 100px auto;
-    width: 320px;
     overflow: auto;
+    text-align: center;
 }
 .sunshine-days__numbers{
     font-size: 5em;
     font-weight: 900;
-    float: left;
-    margin-right: 20px;
+    margin-right: 20px;    
+    display: inline-block;
+    vertical-align: top;
 }
 @media only screen and (max-width : 400px) {
     .sunshine-days__numbers{
@@ -244,8 +245,10 @@ button,
 }
 .sunshine-days__text{
     font-size: 2em;
-    float: left;
     margin-top: 5px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
 }
 @media only screen and (max-width : 400px) {
     .sunshine-days__text{

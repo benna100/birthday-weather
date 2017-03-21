@@ -58,6 +58,7 @@ const App = React.createClass({
 
         /* async loading of components */
         require.ensure([], require => {
+            window.EPPZScrollTo.scrollVerticalToElementById('birthday-result', 0);
             const BirthdayResult = require('./birthdayResult.jsx').default;
             render(<BirthdayResult weatherConditions={this.weatherConditions} formattedbirthdayDate={this.state.formattedBirthdayDate} setDataForTable={this.state.tableData} /> , document.getElementById('birthday-result'));
             this.setState({
@@ -136,6 +137,7 @@ const App = React.createClass({
                 'Rain': 'Regn',
                 'Snow': 'Sne',
                 'Ukendt': 'Ukendt',
+                'Mist': 'Tåge',
             };
             console.log(weatherConditionTranslator[weatherCondition]);
             return {
