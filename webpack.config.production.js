@@ -96,7 +96,8 @@ module.exports = {
                     minChunks: Infinity
                 })
                 */
-        new BundleAnalyzerPlugin(),
+        // used for analyzing the bundles in a webinterface
+        // new BundleAnalyzerPlugin(),
 
     ],
 };

@@ -99,7 +99,6 @@ h1 {
 .birthdaysInput {
     overflow: auto;
     margin: 10px 0px 10px;
-    background-color: white;
 
     textarea:focus,
     input:focus,
@@ -126,6 +125,7 @@ h1 {
         border-radius: 3px;
         border: 0;
         margin-right: 10px;
+        background-color: white;
     }
     .yearInput {
         width: calc(33% - 10px);
