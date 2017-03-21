@@ -176,11 +176,12 @@ document.getElementsByClassName('start-button')[0].addEventListener('click', fun
 
 
     render(<App/>, document.getElementsByClassName('app-container')[0]);
-    window.EPPZScrollTo.scrollVerticalToElementById('main-container', 0);
+    
     setTimeout(function() {
         bodyElement.style.overflow = 'auto';
         bodyElement.style.overflowX = 'hidden';
-        }, 100);
+        window.EPPZScrollTo.scrollVerticalToElementById('main-container', 0);
+    }, 100);
 
 }, false);
 

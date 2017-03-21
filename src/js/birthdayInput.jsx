@@ -34,6 +34,7 @@ const BirthdayInput = React.createClass({
             this.refs.submitButton.classList.remove('button--active');
         }).bind(this), 70);
         this.props.handleResultClick(this.refs.dayInput, this.refs.monthInput, this.refs.yearInput, this.selectedCity);
+        window.EPPZScrollTo.scrollVerticalToElementById('birthday-result', 0);
     },
     citySelector(refName, event){
         event.preventDefault();
@@ -46,7 +47,7 @@ const BirthdayInput = React.createClass({
         return (
           <div className="birthday-input">
             <span className="birthday-date-text">
-                Jeg er <b>født</b> den
+                Jeg er født den
             </span>
             <form onSubmit={this.handleResultClick}>
                 <div className="birthdaysInput clearfix">

@@ -75,12 +75,12 @@ and also iPads specifically.
 	Label the data
 	*/
     td:nth-of-type(1):before {
-        content: "Year";
+        content: "År";
     }
     td:nth-of-type(2):before {
-        content: "Weather condition";
+        content: "Vejrbeskrivelse";
     }
     td:nth-of-type(3):before {
-        content: "Weather icon";
+        content: "Vejrikon";
     }
 }

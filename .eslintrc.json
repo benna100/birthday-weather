@@ -14,6 +14,9 @@
     "rules": {
        "indent": ["error", 4, {
             "SwitchCase": 1
-        }] 
+        }],
+        "radix": 0,
+        "max-len": [1,500,2,{"ignoreComments": true}],
+        "no-console": ["error", { "allow": ["warn", "error", "log"] }]
     }   
 }
