@@ -213,6 +213,10 @@ b{
     font-weight: 700;
 }
 
+.birthday-input{
+    margin-bottom: 50px;
+}
+
 a {
     color: black;
 }
@@ -227,7 +231,7 @@ button,
 }
 
 .sunshine-days{
-    margin: 100px auto 100px auto;
+    margin: 50px auto 100px auto;
     overflow: auto;
     text-align: center;
 }
@@ -238,13 +242,8 @@ button,
     display: inline-block;
     vertical-align: top;
 }
-@media only screen and (max-width : 400px) {
-    .sunshine-days__numbers{
-        margin-right: 10px;
-    }
-}
 .sunshine-days__text{
-    font-size: 2em;
+    font-size: 2rem;
     margin-top: 5px;
     display: inline-block;
     vertical-align: top;
