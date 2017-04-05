@@ -106,6 +106,14 @@ h1 {
     select:focus {
         outline: none;
     }
+    button:focus, input:focus, select:focus{
+        /*
+        outline: solid 1px rgb(216, 41, 51);
+        */
+        outline: 0;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, .3), 0 5px 5px rgba(0, 0, 0, .22);
+        transition: box-shadow 0.2s ease;
+    }
     .dayInput {
         width: calc(33% - 10px);
         margin-right: 10px;
