@@ -50,8 +50,8 @@ const BirthdayInput = React.createClass({
             </span>
             <form onSubmit={this.handleResultClick}>
                 <div className="birthdaysInput clearfix">
-                    <input type="number" placeholder="Dag" ref="dayInput" className="dayInput" min="1" max="31" onChange={this.handleChange}/>
-                    <select placeholder="Måned" onChange={this.handleChange} ref="monthInput" className="monthInput">
+                    <input type="number" placeholder="Dag" ref="dayInput" className="dayInput" min="1" max="31" ontouchstart="" onChange={this.handleChange}/>
+                    <select placeholder="Måned" onChange={this.handleChange} ref="monthInput" ontouchstart="" className="monthInput">
                         <option value="" disabled selected>Måned</option>
                         <option value="Januar">Januar</option>
                         <option value="Februar">Februar</option>
@@ -66,10 +66,10 @@ const BirthdayInput = React.createClass({
                         <option value="November">November</option>
                         <option value="December">December</option>
                     </select>
-                    <input type="number" min="1900" placeholder="År" ref="yearInput" className="yearInput" onChange={this.handleChange} />
+                    <input type="number" min="1900" placeholder="År" ontouchstart="" ref="yearInput" className="yearInput" onChange={this.handleChange} />
                     <span className="city-chooser-text">Den <b>by der ligger tættest</b> på mig er:</span>
-                    <button className="city-selector" ref="copenhagen_button" onClick={(event) => { this.citySelector("copenhagen", event); this.handleChange(event);}}>København</button>
-                    <button className="city-selector" ref="aarhus_button" onClick={(event) => { this.citySelector("aarhus", event); this.handleChange(event);}}>Århus</button>
+                    <button className="city-selector" ontouchstart="" ref="copenhagen_button" onClick={(event) => { this.citySelector("copenhagen", event); this.handleChange(event);}}>København</button>
+                    <button className="city-selector" ontouchstart="" ref="aarhus_button" onClick={(event) => { this.citySelector("aarhus", event); this.handleChange(event);}}>Århus</button>
                 </div>
                 <br />
                 <button ref="submitButton" className="clearfix submit-button" disabled={!this.state.buttonDisabled}>
