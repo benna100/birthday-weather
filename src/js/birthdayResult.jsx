@@ -213,7 +213,7 @@ const BirthdayResult = React.createClass({
                 <hr/>
                 <div className="sunshine-days">
                     <div className="sunshine-days__numbers">{this.getSunshineDays()}</div>
-                    <div className="sunshine-days__text">{daysString} på <b>din</b><br/><b>fødselsdag</b> siden 1996</div>
+                    <div className="sunshine-days__text"><b>{daysString}</b> på din<br/><b>fødselsdag</b> siden 1996</div>
                 </div>
                 
                 <br/>

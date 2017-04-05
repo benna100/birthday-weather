@@ -406,10 +406,15 @@
 
             function animateCloud(cloudElement, durationString){
                 cloudElement.style.transition = 'none';
+                cloudElement.style.webkitTransform = 'none';
+                
                 cloudElement.style.transform = 'translateX(-100%)';
+                cloudElement.style.webkitTransform = 'translateX(-100%)';
                 setTimeout(function() {
                     cloudElement.style.transition = 'transform linear ' + durationString;
+                    cloudElement.style.webkitTransition = 'transform linear ' + durationString;
                     cloudElement.style.transform = 'translateX(' + innerWidth + 'px)';
+                    cloudElement.style.webkitTransform = 'translateX(' + innerWidth + 'px)';
                 }, 100);
             }
 

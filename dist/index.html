@@ -37,10 +37,15 @@
 
             function animateCloud(cloudElement, durationString){
                 cloudElement.style.transition = 'none';
+                cloudElement.style.webkitTransform = 'none';
+                
                 cloudElement.style.transform = 'translateX(-100%)';
+                cloudElement.style.webkitTransform = 'translateX(-100%)';
                 setTimeout(function() {
                     cloudElement.style.transition = 'transform linear ' + durationString;
+                    cloudElement.style.webkitTransition = 'transform linear ' + durationString;
                     cloudElement.style.transform = 'translateX(' + innerWidth + 'px)';
+                    cloudElement.style.webkitTransform = 'translateX(' + innerWidth + 'px)';
                 }, 100);
             }
 
@@ -71,4 +76,4 @@
                     }, 5100);
                 }
                 cloud3Runner();
-            }, 3400);</script><script type=text/javascript src=bundle.2413a9651d2c10a9ecc3.min.js></script></body></html>
+            }, 3400);</script><script type=text/javascript src=bundle.521bbb35f3d6f19b44ad.min.js></script></body></html>
