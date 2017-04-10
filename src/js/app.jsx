@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import BirthdayInput from './birthdayInput.jsx';
 import '../styles/index.scss';
 import '../styles/weather-fonts/css/weather-icons.min.css';
+
 /*
 import BirthdayResult from './birthdayResult.jsx';
 */
@@ -42,15 +43,71 @@ const App = React.createClass({
         });
 
         if(selectedCity == 'copenhagen'){
+            //http://95.85.11.203/most_typical_weather_conditions_copenhagen.json
+            /*
             require(["./most_typical_weather_conditions_copenhagen.json"], (function(weatherConditions) {
                 this.weatherConditions = weatherConditions;
                 this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
             }).bind(this));
+            */
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = (function() {
+                if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+                   if(xmlhttp.status == 200){
+                        this.weatherConditions = JSON.parse(xmlhttp.responseText);
+                        this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
+                   }
+                   else if(xmlhttp.status == 400) {
+                      //alert('There was an error 400')
+                   }
+                   else {
+                       //alert('something else other than 200 was returned')
+                   }
+                }
+            }).bind(this);
+            xmlhttp.open("GET", "http://95.85.11.203/most_typical_weather_conditions_copenhagen.json", true);
+            xmlhttp.send();
+
         }else{
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = (function() {
+                if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+                   if(xmlhttp.status == 200){
+                        this.weatherConditions = JSON.parse(xmlhttp.responseText);
+                        this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
+                   }
+                   else if(xmlhttp.status == 400) {
+                      //alert('There was an error 400')
+                   }
+                   else {
+                       //alert('something else other than 200 was returned')
+                   }
+                }
+            }).bind(this);
+            xmlhttp.open("GET", "http://95.85.11.203/most_typical_weather_conditions_aarhus.json", true);
+            xmlhttp.send();
+            //http://95.85.11.203/most_typical_weather_conditions_aarhus.json
+            /*
             require(["./most_typical_weather_conditions_aarhus.json"], (function(weatherConditions) {
                 this.weatherConditions = weatherConditions;
                 this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
             }).bind(this));
+            */
         }
     },
 
@@ -109,8 +166,16 @@ const App = React.createClass({
                 weatherCondition = this.weatherConditions[formattedDate];
             }
             console.log(weatherCondition);
-            console.log(typeof weatherCondition);
-            if(typeof weatherCondition == 'undefined'){
+            console.log('starter her: ' + weatherCondition + ' slutter her');
+            console.log(formattedDate);
+            
+            if(typeof weatherCondition === 'undefined'){
+                console.log('undefined if');
+                weatherCondition = 'Ukendt';
+            }
+
+            if(weatherCondition === ''){
+                console.log('no string if');
                 weatherCondition = 'Ukendt';
             }
 
@@ -121,10 +186,11 @@ const App = React.createClass({
                 'Mostly Cloudy': 'wi wi-cloudy',
                 'Overcast': 'wi wi-cloudy',
                 'Clear': 'wi wi-day-sunny',
-                'fog': 'wi wi-fog',
+                'Fog': 'wi wi-fog',
+                'Mist': 'wi wi-fog',
                 'Partly Cloudy': 'wi wi-day-cloudy',
                 'Scattered Clouds': 'wi wi-day-cloudy',
-                'Ukendt': 'wi-na',
+                'Ukendt': '',
             };
 
             const weatherConditionTranslator = {
@@ -187,7 +253,7 @@ render(
 
 
 const bodyElement = document.getElementsByTagName('body')[0];
-document.getElementsByClassName('start-button')[0].addEventListener('click', function() {
+document.getElementsByClassName('start-button')[0].addEventListener('mousedown', function() {
     document.getElementsByClassName('start-button')[0].classList.add('button--active');
     setTimeout((function() {
         document.getElementsByClassName('start-button')[0].classList.remove('button--active');

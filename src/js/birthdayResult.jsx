@@ -177,7 +177,7 @@ const BirthdayResult = React.createClass({
             return (
                 <div className="left-arrow">
                     <div className="left-arrow__text">
-                        {this.getWeatherConditionDays() - this.getSunshineDays()} ikke <br /> {daysString}
+                        {this.getWeatherConditionDays() - this.getSunshineDays()} ikke <br /> {daysString} :(
                     </div>
                     <div className="left-arrow__svg"></div>
                 </div>
@@ -187,7 +187,7 @@ const BirthdayResult = React.createClass({
                 <div>
                     <div className="left-arrow">
                         <div className="left-arrow__text">
-                            {this.getWeatherConditionDays() - this.getSunshineDays()} ikke <br /> solskinsdage
+                            {this.getWeatherConditionDays() - this.getSunshineDays()} ikke <br /> solskinsdage  :(
                         </div>
                         <div className="left-arrow__svg"></div>
                     </div>
