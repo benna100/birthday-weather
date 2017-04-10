@@ -201,6 +201,44 @@ const BirthdayResult = React.createClass({
             )
         }
     },
+    renderRestOfResults(){
+        if(this.getSunshineDays() !== 0){
+            return(
+                <div>
+                    <div className="circle-diagram">
+                        <div className="circle-diagram__arrows">
+                            {this.renderTwoArrows()}
+                        </div>
+
+                        <div className="circle-diagram__svg-element">
+                            {this.renderCircleDiagram()}
+                        </div>
+
+                        
+                    </div>
+                    
+                    <br/>
+                    <br/>
+                    <div className="table-container">
+                        <div className="table-container__your-weather">
+                            Sådan har vejret været d. {`${this.props.formattedbirthdayDate}`}
+                        </div>
+                        <ResponsiveTable rows={this.props.setDataForTable.reverse()}/>
+                        {this.noMoreData()}
+                    </div>
+                </div>
+            )
+        }else{
+            return(
+                <div className="table-container">
+                    <div className="table-container__your-weather">
+                        av av av...
+                    </div>
+                </div>
+            )
+        }
+        
+    },
     render() {
         let daysString;
         if (this.getSunshineDays() === 1) {
@@ -218,28 +256,8 @@ const BirthdayResult = React.createClass({
                 
                 <br/>
                 
+                {this.renderRestOfResults()}
 
-                <div className="circle-diagram">
-                    <div className="circle-diagram__arrows">
-                        {this.renderTwoArrows()}
-                    </div>
-
-                    <div className="circle-diagram__svg-element">
-                        {this.renderCircleDiagram()}
-                    </div>
-
-                    
-                </div>
-                
-                <br/>
-                <br/>
-                <div className="table-container">
-                    <div className="table-container__your-weather">
-                        Sådan har vejret været d. {`${this.props.formattedbirthdayDate}`}
-                    </div>
-                    <ResponsiveTable rows={this.props.setDataForTable.reverse()}/>
-                    {this.noMoreData()}
-                </div>
             </div>
         )
     }
