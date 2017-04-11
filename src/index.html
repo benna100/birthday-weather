@@ -398,7 +398,7 @@
             
         function animateSvgWriting(){
             document.querySelector('.benjamin-name').style.display = 'block';
-            let totalWaitInterval = 0;
+            var totalWaitInterval = 0;
             
             function animateSvgPath(svgElement, length, wait){
                 setTimeout((function() {                
@@ -411,9 +411,9 @@
             var pathElements = document.querySelectorAll('.benjamin-name path');
             for (var i = 0; i < pathElements.length; i++ ) {
                 var path = pathElements[i];
-                const randomInterval = 400;
+                var randomInterval = 400;
                 totalWaitInterval += randomInterval;
-                const length = path.getTotalLength();
+                var length = path.getTotalLength();
                 path.style.transition = 'none';
                 path.style.WebkitTransition = 'none';
                 path.style.strokeDasharray = length + ' ' + length;
