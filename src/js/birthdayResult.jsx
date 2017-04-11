@@ -272,7 +272,7 @@ const BirthdayResult = React.createClass({
                     Vejrdata kommer fra <a href="https://www.wunderground.com/" target="_blank">https://www.wunderground.com/</a>. For at finde antal solskinsdage, finder jeg den mest optrædende vejrbeskrivelse mellem kl 6 om morgenen og 10 om aftenen. En solskinsdag er en dag hvor vejrbeskrivelsen 'Clear' optræder mest. 
                     <br/>
                     <br/>
-                    Analysen bliver lavet med <b>python</b> der først henter de seneste vejrbeskrivelser ned vha <b>BeautifulSoup</b>. Dernæst bliver vejrbeskrivelserne analyseret for, at finde den mest optrædende. De python scripts ligger på en <b>Ubuntu server</b> på <b>Digital Ocean</b>, som via et <b>dagligt cron job</b> opdaterer vejr data, og dernæst lægger data op på <b>Github</b>.
+                    Analysen bliver lavet med <b>python</b> der først henter de seneste vejrbeskrivelser ned vha <b>BeautifulSoup</b>. Dernæst bliver vejrbeskrivelserne analyseret for, at finde den mest optrædende. De python scripts ligger på en <b>Ubuntu server</b> på <b>Digital Ocean</b>, som via et <b>dagligt cron job</b> opdaterer vejrdata, og dernæst lægger data op på <b>Github</b>.
                     <br/>
                     <br/>
                     Selve webappen er bygget med <b>react</b>, <b>webpack</b>, <b>npm</b> og <b>BEM CSS methodology</b>. Data bliver <b>asynkront hentet via javascript.</b> Til sidst er webappen krydret med lidt <b>hjemmelavet SVG</b>, <b>en emojii</b>, et <b>fantastisk flot cirkeldiagram</b> og nogle lækre <b>skytransitions</b> :)
