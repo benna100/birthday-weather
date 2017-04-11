@@ -73,7 +73,7 @@ const App = React.createClass({
                    }
                 }
             }).bind(this);
-            xmlhttp.open("GET", "http://95.85.11.203/most_typical_weather_conditions_copenhagen.json", true);
+            xmlhttp.open("GET", "https://raw.githubusercontent.com/benna100/birthday-weather/gh-pages/src/js/most_typical_weather_conditions_copenhagen.json", true);
             xmlhttp.send();
 
         }else{
@@ -99,7 +99,7 @@ const App = React.createClass({
                    }
                 }
             }).bind(this);
-            xmlhttp.open("GET", "http://95.85.11.203/most_typical_weather_conditions_aarhus.json", true);
+            xmlhttp.open("GET", "https://raw.githubusercontent.com/benna100/birthday-weather/gh-pages/src/js/most_typical_weather_conditions_aarhus.json", true);
             xmlhttp.send();
             //http://95.85.11.203/most_typical_weather_conditions_aarhus.json
             /*
