@@ -4,6 +4,10 @@ import { render } from 'react-dom';
 import BirthdayInput from './birthdayInput.jsx';
 import '../styles/index.scss';
 import '../styles/weather-fonts/css/weather-icons.min.css';
+import moveToImport from 'moveTo';
+const moveTo = new moveToImport();
+
+window.moveTo = moveTo;
 
 /*
 import BirthdayResult from './birthdayResult.jsx';
@@ -115,7 +119,8 @@ const App = React.createClass({
 
         /* async loading of components */
         require.ensure([], require => {
-            window.EPPZScrollTo.scrollVerticalToElementById('birthday-result', 0);
+            moveTo.move(document.getElementById('birthday-result'));
+            //window.EPPZScrollTo.scrollVerticalToElementById('birthday-result', 0);
             const BirthdayResult = require('./birthdayResult.jsx').default;
             render(<BirthdayResult weatherConditions={this.weatherConditions} formattedbirthdayDate={this.state.formattedBirthdayDate} setDataForTable={this.state.tableData} /> , document.getElementById('birthday-result'));
             this.setState({
@@ -165,7 +170,7 @@ const App = React.createClass({
             if(formattedDate in this.weatherConditions){
                 weatherCondition = this.weatherConditions[formattedDate];
             }
-            
+
             console.log(weatherCondition);
             console.log(formattedDate);
             
@@ -267,7 +272,8 @@ document.getElementsByClassName('start-button')[0].addEventListener('mousedown',
         bodyElement.style.overflow = 'auto';
         bodyElement.style.overflowX = 'hidden';
         */
-        window.EPPZScrollTo.scrollVerticalToElementById('main-container', 0);
+        moveTo.move(document.getElementById('main-container'));
+        //window.EPPZScrollTo.scrollVerticalToElementById('main-container', 0);
 
     }, 100);
 

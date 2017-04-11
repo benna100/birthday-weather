@@ -216,7 +216,6 @@ const BirthdayResult = React.createClass({
 
                         
                     </div>
-                    
                     <br/>
                     <br/>
                     <div className="table-container">
@@ -236,28 +235,58 @@ const BirthdayResult = React.createClass({
                     </div>
                 </div>
             )
-        }
-        
+        }  
     },
     render() {
         let daysString;
         if (this.getSunshineDays() === 1) {
-            daysString = 'solskinsdag';
+            daysString = 'fødselsdag';
         } else {
-            daysString = 'solskinsdage';
+            daysString = 'fødselsdage';
         }
         return (
             <div>
                 <hr/>
                 <div className="sunshine-days">
                     <div className="sunshine-days__numbers">{this.getSunshineDays()}</div>
-                    <div className="sunshine-days__text"><b>{daysString}</b> på din<br/>fødselsdag siden 1996</div>
+                    <div className="sunshine-days__text"><b>{daysString} med solskin</b><br/> <b></b> siden 1996 ({Math.round((Math.round(this.calculateSunshinePercentage() * 100) / 100) * 100)}% solskinsdage)</div>
                 </div>
-                
                 <br/>
                 
                 {this.renderRestOfResults()}
 
+                <div className="">
+
+                </div>
+                <hr className="last-divider"/>
+                
+
+                <h1 className="explanation-title">
+                    Og nu til det nørdede
+                </h1>
+                <p className="explanation-description">
+                    <br/>
+                    Denne app er et hyggesideprojekt (læs ikke fantastisk kode) der kom til over en frokost og et krea mindset :) For kunne det virkelig passe, at man ikke kunne se hvor mange dage, solen havde skinnet på ens fødselsdag!? Det måtte der gøres noget ved!
+                    <br/>
+                    <br/>
+                    Vejrdata kommer fra <a href="https://www.wunderground.com/" target="_blank">https://www.wunderground.com/</a>. For at finde antal solskinsdage, finder jeg den mest optrædende vejrbeskrivelse mellem kl 6 om morgenen og 10 om aftenen. En solskinsdag er en dag hvor vejrbeskrivelsen 'Clear' optræder mest. 
+                    <br/>
+                    <br/>
+                    Analysen bliver lavet med <b>python</b> der først henter de seneste vejrbeskrivelser ned vha <b>BeautifulSoup</b>. Dernæst bliver vejrbeskrivelserne analyseret for, at finde den mest optrædende. De python scripts ligger på en <b>Ubuntu server</b> på <b>Digital Ocean</b>, som via et <b>dagligt cron job</b> opdaterer vejr data, og dernæst lægger data op på <b>Github</b>.
+                    <br/>
+                    <br/>
+                    Selve webappen er bygget med <b>react</b>, <b>webpack</b>, <b>npm</b> og <b>BEM CSS methodology</b>. Data bliver <b>asynkront hentet via javascript.</b> Til sidst er webappen krydret med lidt <b>hjemmelavet SVG</b>, <b>en emojii</b>, et <b>fantastisk flot cirkeldiagram</b> og nogle lækre <b>skytransitions</b> :)
+                    <br/>
+                    <br/>
+                    Webappen er fokuseret på brugeren og da det er et hyggesideprojekt, er der ikke lagt super meget tid i perfekt kode.
+                </p>
+
+                <br/>
+                <div className="cool-project">
+                    <p>
+                        Hvis du har et fedt/skørt/sjovt/kreativt/anderledes<br/> projekt så skriv til mig på: <br/> <span className="wiggle first">👉</span>  <a href="mailto:benjamin.dals.hughes@gmail.com" target="_top">benjamin.dals.hughes@gmail.com</a>  <span className="wiggle">👈</span>
+                    </p>
+                </div>
             </div>
         )
     }
