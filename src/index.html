@@ -430,11 +430,8 @@
             var repeater;
             var innerWidth = window.innerWidth;
             var cloud1element = document.getElementsByClassName('cloud1')[0];
-            console.log(cloud1element);
             var cloud2element = document.getElementsByClassName('cloud2')[0];
-            console.log(cloud2element);
             var cloud3element = document.getElementsByClassName('cloud3')[0];
-            console.log(cloud3element);
 
             function animateCloud(cloudElement, durationString){
                 cloudElement.style.transition = 'none';
@@ -453,7 +450,6 @@
 
             function cloud1Runner() {
                 animateCloud(cloud1element, '8s');
-                console.log('cloud1Runner timer')
                 setTimeout(function() {
                     cloud1Runner();
                 }, 8100);

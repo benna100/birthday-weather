@@ -171,16 +171,12 @@ const App = React.createClass({
                 weatherCondition = this.weatherConditions[formattedDate];
             }
 
-            console.log(weatherCondition);
-            console.log(formattedDate);
             
             if(typeof weatherCondition === 'undefined'){
-                console.log('undefined if');
                 weatherCondition = 'Ukendt';
             }
 
             if(weatherCondition === ''){
-                console.log('no string if');
                 weatherCondition = 'Ukendt';
             }
 
@@ -210,7 +206,6 @@ const App = React.createClass({
                 'Ukendt': 'Ukendt',
                 'Mist': 'Tåge',
             };
-            console.log(weatherConditionTranslator[weatherCondition]);
             return {
                 date: birthday,
                 weatherCondition: weatherConditionTranslator[weatherCondition],
