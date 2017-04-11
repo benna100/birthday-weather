@@ -166,7 +166,6 @@ const App = React.createClass({
                 weatherCondition = this.weatherConditions[formattedDate];
             }
             console.log(weatherCondition);
-            console.log('starter her: ' + weatherCondition + ' slutter her');
             console.log(formattedDate);
             
             if(typeof weatherCondition === 'undefined'){
@@ -199,7 +198,7 @@ const App = React.createClass({
                 'Mostly Cloudy': 'Mest skyet',
                 'Scattered Clouds': 'Få skyer',
                 'Overcast': 'Overskyet',
-                'fog': 'Tåge',
+                'Fog': 'Tåge',
                 'Rain': 'Regn',
                 'Snow': 'Sne',
                 'Ukendt': 'Ukendt',
