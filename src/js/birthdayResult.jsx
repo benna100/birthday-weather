@@ -284,7 +284,7 @@ const BirthdayResult = React.createClass({
                 <br/>
                 <div className="cool-project">
                     <p>
-                        Hvis du har et fedt/skørt/sjovt/kreativt/anderledes<br/> projekt så skriv til mig på: <br/> <span className="wiggle first">👉</span>  <a href="mailto:benjamin.dals.hughes@gmail.com" target="_top">benjamin.dals.hughes@gmail.com</a>  <span className="wiggle">👈</span>
+                        Hvis du har et fedt/skørt/sjovt/kreativt/anderledes<br/> projekt så skriv til mig på: <br/> <span className="leftRight first">👉</span><span className="upDown first">👇</span>  <a href="mailto:benjamin.dals.hughes@gmail.com" target="_top">benjamin.dals.hughes@gmail.com</a>  <span className="leftRight">👈</span><span className="upDown">👆</span>
                     </p>
                 </div>
             </div>
