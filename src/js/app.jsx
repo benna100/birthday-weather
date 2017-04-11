@@ -165,6 +165,7 @@ const App = React.createClass({
             if(formattedDate in this.weatherConditions){
                 weatherCondition = this.weatherConditions[formattedDate];
             }
+            
             console.log(weatherCondition);
             console.log(formattedDate);
             
