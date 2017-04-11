@@ -266,7 +266,7 @@ const BirthdayResult = React.createClass({
                 </h1>
                 <p className="explanation-description">
                     <br/>
-                    Denne app er et hyggesideprojekt (læs ikke fantastisk kode) der kom til over en frokost og et krea mindset :) For kunne det virkelig passe, at man ikke kunne se hvor mange dage, solen havde skinnet på ens fødselsdag!? Det måtte der gøres noget ved!
+                    Denne app er et hyggesideprojekt der kom til over en frokost og et krea mindset :) For kunne det virkelig passe, at man ikke kunne se hvor mange dage, solen havde skinnet på ens fødselsdag!? Det måtte der gøres noget ved!
                     <br/>
                     <br/>
                     Vejrdata kommer fra <a href="https://www.wunderground.com/" target="_blank">https://www.wunderground.com/</a>. For at finde antal solskinsdage, finder jeg den mest optrædende vejrbeskrivelse mellem kl 6 om morgenen og 10 om aftenen. En solskinsdag er en dag hvor vejrbeskrivelsen 'Clear' optræder mest. 
@@ -284,7 +284,7 @@ const BirthdayResult = React.createClass({
                 <br/>
                 <div className="cool-project">
                     <p>
-                        Hvis du har et fedt/skørt/sjovt/kreativt/anderledes<br/> projekt så skriv til mig på: <br/> <span className="leftRight first">👉</span><span className="upDown first">👇</span>  <a href="mailto:benjamin.dals.hughes@gmail.com" target="_top">benjamin.dals.hughes@gmail.com</a>  <span className="leftRight">👈</span><span className="upDown">👆</span>
+                        Hvis du har et fedt/skørt/sjovt/kreativt<br/> projekt så skriv til mig på: <br/> <span className="leftRight first">👉</span><span className="upDown first">👇</span>  <a href="mailto:benjamin.dals.hughes@gmail.com" target="_top">benjamin.dals.hughes@gmail.com</a>  <span className="leftRight">👈</span><span className="upDown">👆</span>
                     </p>
                 </div>
             </div>
