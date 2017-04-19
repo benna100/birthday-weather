@@ -10,18 +10,18 @@ const ResponsiveTable = React.createClass({
     renderRow(weatherDate, i){
         if (weatherDate.date !== undefined) {
             let style = {
-                color: '#000',
+                background: 'rgba(253, 228, 58, 0.0)',
             };
             if (weatherDate.weatherCondition === 'Solskin') {
                 style = {
-                    color: '#fde43a',
+                    background: 'rgba(253, 228, 58, 0.20)',
                 };
             }
             return (
-                <tr key={i}>
+                <tr key={i} style={style}>
                     <td>{weatherDate.date.getFullYear()}</td>
                     <td>{weatherDate.weatherCondition}</td>
-                    <td><a target="_blank" href={weatherDate.weatherLink}><i style={style} className={weatherDate.weatherIcon}></i></a></td>
+                    <td><a target="_blank" href={weatherDate.weatherLink}><i className={weatherDate.weatherIcon}></i></a></td>
                 </tr>
             )
         }

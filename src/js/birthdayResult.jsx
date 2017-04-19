@@ -256,7 +256,7 @@ const BirthdayResult = React.createClass({
                 <hr/>
                 <div className="sunshine-days">
                     <div className="sunshine-days__numbers">{this.getSunshineDays()}</div>
-                    <div className="sunshine-days__text"><b>{daysString} med solskin</b><br/> <b></b> siden 1996. <a href="#">Del på Facebook</a></div>
+                    <div className="sunshine-days__text"><b>{daysString} med solskin</b><br/> <b></b> siden 1996. <a target="_blank" href={`https://www.facebook.com/dialog/feed?app_id=270494306352103&display=popup&caption=Se hvor mange fødselsdage med solskin du har haft!&link=https://benna100.github.io/birthday-weather/dist/&description=Dem med fødselsdag d. ${this.props.formattedbirthdayDate} har haft ${this.getSunshineDays()} dage med solskin&redirect_uri=https://benna100.github.io/birthday-weather/dist/`}>Del på Facebook</a></div>
                 </div>
                 <br/>
                 

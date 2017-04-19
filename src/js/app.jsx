@@ -231,7 +231,7 @@ render(
 
 
 const bodyElement = document.getElementsByTagName('body')[0];
-document.getElementsByClassName('start-button')[0].addEventListener('mousedown', function() {
+document.getElementsByClassName('start-button')[0].addEventListener('click', function() {
     document.getElementsByClassName('start-button')[0].classList.add('button--active');
     setTimeout((function() {
         document.getElementsByClassName('start-button')[0].classList.remove('button--active');
