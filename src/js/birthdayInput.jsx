@@ -40,6 +40,8 @@ const BirthdayInput = React.createClass({
         this.selectedCity = refName;
         this.refs.copenhagen_button.classList.remove('city-selector--active');
         this.refs.aarhus_button.classList.remove('city-selector--active');
+        this.refs.odense_button.classList.remove('city-selector--active');
+        this.refs.aalborg_button.classList.remove('city-selector--active');
         event.target.classList.add('city-selector--active');
     },
     render(){
@@ -66,10 +68,13 @@ const BirthdayInput = React.createClass({
                         <option value="November">November</option>
                         <option value="December">December</option>
                     </select>
-                    <input type="number" min="1900" placeholder="År" ontouchstart="" ref="yearInput" className="yearInput" onChange={this.handleChange} />
+                    <input type="number" min="1900" placeholder="År (fx 1989)" ontouchstart="" ref="yearInput" className="yearInput" onChange={this.handleChange} />
                     <span className="city-chooser-text">Den <b>by der ligger tættest</b> på mig er:</span>
                     <button className="city-selector" ontouchstart="" ref="copenhagen_button" onClick={(event) => { this.citySelector("copenhagen", event); this.handleChange(event);}}>København</button>
                     <button className="city-selector" ontouchstart="" ref="aarhus_button" onClick={(event) => { this.citySelector("aarhus", event); this.handleChange(event);}}>Århus</button>
+                    <button className="city-selector" ontouchstart="" ref="aalborg_button" onClick={(event) => { this.citySelector("aalborg", event); this.handleChange(event);}}>Ålborg</button>
+                    <button className="city-selector" ontouchstart="" ref="odense_button" onClick={(event) => { this.citySelector("odense", event); this.handleChange(event);}}>Odense</button>
+                
                 </div>
                 <br />
                 <button ref="submitButton" className="clearfix submit-button" disabled={!this.state.buttonDisabled}>

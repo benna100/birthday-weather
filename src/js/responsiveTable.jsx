@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ResponsiveTable = React.createClass({
-    getInitialState(){
+    getInitialState() {
         return {buttonDisabled: false};
     },
     handleChange(){
@@ -9,11 +9,19 @@ const ResponsiveTable = React.createClass({
     },
     renderRow(weatherDate, i){
         if (weatherDate.date !== undefined) {
+            let style = {
+                color: '#000',
+            };
+            if (weatherDate.weatherCondition === 'Solskin') {
+                style = {
+                    color: '#fde43a',
+                };
+            }
             return (
                 <tr key={i}>
                     <td>{weatherDate.date.getFullYear()}</td>
                     <td>{weatherDate.weatherCondition}</td>
-                    <td><a target="_blank" href={weatherDate.weatherLink}><i className={weatherDate.weatherIcon}></i></a></td>
+                    <td><a target="_blank" href={weatherDate.weatherLink}><i style={style} className={weatherDate.weatherIcon}></i></a></td>
                 </tr>
             )
         }

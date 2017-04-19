@@ -12,7 +12,6 @@ const BirthdayResult = React.createClass({
     },
     getSunshineDays() {
         return this.props.setDataForTable.filter((dateObject) => {
-            console.log(dateObject);
             return dateObject.weatherCondition === 'Solskin';
         }).length;
     },
@@ -181,6 +180,9 @@ const BirthdayResult = React.createClass({
                         {this.getWeatherConditionDays() - this.getSunshineDays()} ikke <br /> {daysString} :(
                     </div>
                     <div className="left-arrow__svg"></div>
+                    <div className="bottom-text">
+                        {Math.round((Math.round(this.calculateSunshinePercentage() * 100) / 100) * 100)}% solskinsdage
+                    </div>
                 </div>
             )
         }else{
@@ -197,6 +199,9 @@ const BirthdayResult = React.createClass({
                             {this.getSunshineDays()} {daysString} :)
                         </div>
                         <div className="right-arrow__svg"></div>
+                    </div>
+                    <div className="bottom-text">
+                        {Math.round((Math.round(this.calculateSunshinePercentage() * 100) / 100) * 100)}% solskinsdage
                     </div>
                 </div>
             )
@@ -245,12 +250,13 @@ const BirthdayResult = React.createClass({
         } else {
             daysString = 'fødselsdage';
         }
+        //({Math.round((Math.round(this.calculateSunshinePercentage() * 100) / 100) * 100)}% solskinsdage)
         return (
             <div>
                 <hr/>
                 <div className="sunshine-days">
                     <div className="sunshine-days__numbers">{this.getSunshineDays()}</div>
-                    <div className="sunshine-days__text"><b>{daysString} med solskin</b><br/> <b></b> siden 1996 ({Math.round((Math.round(this.calculateSunshinePercentage() * 100) / 100) * 100)}% solskinsdage)</div>
+                    <div className="sunshine-days__text"><b>{daysString} med solskin</b><br/> <b></b> siden 1996. <a href="#">Del på Facebook</a></div>
                 </div>
                 <br/>
                 
@@ -276,7 +282,7 @@ const BirthdayResult = React.createClass({
                     Denne app er et hyggesideprojekt der kom til over en frokost og et krea mindset :) For kunne det virkelig passe, at man ikke kunne se hvor mange dage, solen havde skinnet på ens fødselsdag!? Det måtte der gøres noget ved!
                     <br/>
                     <br/>
-                    Vejrdata kommer fra <a href="https://www.wunderground.com/" target="_blank">https://www.wunderground.com/</a>. For at finde antal solskinsdage, ser jeg om der på et tidspunkt af en dag mellem kl 6 om morgenen og 10 om aftenen har været klart. Hvis der har det, tæller jeg det som en solskinsdag. Man kunne nok lave noget lidt smartere der tjekker om solen er stået op, men det nåede ikke lige med i denn omgang. En solskinsdag er en dag hvor vejrbeskrivelsen 'Clear' optræder mest. 
+                    Vejrdata kommer fra <a href="https://www.wunderground.com/" target="_blank">https://www.wunderground.com/</a>. For at finde antal solskinsdage, ser jeg om der på et tidspunkt af en dag mellem kl 6 om morgenen og 10 om aftenen har været klart. Hvis der har det, tæller jeg det som en solskinsdag. Man kunne nok lave noget lidt smartere der tjekker om solen er stået op, men det nåede ikke lige med i denn omgang. 
                     <br/>
                     <br/>
                     Analysen bliver lavet med <b>python</b> der først henter de seneste vejrbeskrivelser ned vha <b>BeautifulSoup</b>. Dernæst bliver vejrbeskrivelserne analyseret for, at finde den mest optrædende. De python scripts ligger på en <b>Ubuntu server</b> på <b>Digital Ocean</b>, som via et <b>dagligt cron job</b> opdaterer vejrdata, og dernæst lægger data op på <b>Github</b>.
@@ -291,7 +297,7 @@ const BirthdayResult = React.createClass({
                 <br/>
                 <div className="cool-project">
                     <p>
-                        Hvis du har et fedt/skørt/sjovt/kreativt<br/> projekt så skriv til mig på: <br/> <span className="leftRight first">👉</span><span className="upDown first">👇</span>  <a href="mailto:benjamin.dals.hughes@gmail.com" target="_top">benjamin.dals.hughes@gmail.com</a>  <span className="leftRight">👈</span><span className="upDown">👆</span>
+                        Følg mig på <a target="_blank" href="https://twitter.com/DalsHughes">Twitter</a> eller <a target="_blank" href="https://www.linkedin.com/in/benjamindalshughes/">Linkedin</a>
                     </p>
                 </div>
             </div>

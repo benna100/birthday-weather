@@ -46,74 +46,40 @@ const App = React.createClass({
             }
         });
 
-        if(selectedCity == 'copenhagen'){
-            //http://95.85.11.203/most_typical_weather_conditions_copenhagen.json
-            /*
-            require(["./most_typical_weather_conditions_copenhagen.json"], (function(weatherConditions) {
-                this.weatherConditions = weatherConditions;
-                this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
-            }).bind(this));
-            */
+        //http://95.85.11.203/most_typical_weather_conditions_copenhagen.json
+        /*
+        require(["./most_typical_weather_conditions_copenhagen.json"], (function(weatherConditions) {
+            this.weatherConditions = weatherConditions;
+            this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
+        }).bind(this));
+        */
 
-            var xmlhttp;
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = (function() {
-                if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
-                   if(xmlhttp.status == 200){
-                        this.weatherConditions = JSON.parse(xmlhttp.responseText);
-                        console.log(this.weatherConditions);
-                        this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
-                   }
-                   else if(xmlhttp.status == 400) {
-                      //alert('There was an error 400')
-                   }
-                   else {
-                       //alert('something else other than 200 was returned')
-                   }
-                }
-            }).bind(this);
-            xmlhttp.open("GET", "https://raw.githubusercontent.com/benna100/birthday-weather/gh-pages/src/js/most_typical_weather_conditions_copenhagen.json", true);
-            xmlhttp.send();
-
-        }else{
-            var xmlhttp;
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = (function() {
-                if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
-                   if(xmlhttp.status == 200){
-                        this.weatherConditions = JSON.parse(xmlhttp.responseText);
-                        this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
-                   }
-                   else if(xmlhttp.status == 400) {
-                      //alert('There was an error 400')
-                   }
-                   else {
-                       //alert('something else other than 200 was returned')
-                   }
-                }
-            }).bind(this);
-            xmlhttp.open("GET", "https://raw.githubusercontent.com/benna100/birthday-weather/gh-pages/src/js/most_typical_weather_conditions_aarhus.json", true);
-            xmlhttp.send();
-            //http://95.85.11.203/most_typical_weather_conditions_aarhus.json
-            /*
-            require(["./most_typical_weather_conditions_aarhus.json"], (function(weatherConditions) {
-                this.weatherConditions = weatherConditions;
-                this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
-            }).bind(this));
-            */
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
+        xmlhttp.onreadystatechange = (function() {
+            if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+               if(xmlhttp.status == 200){
+                    this.weatherConditions = JSON.parse(xmlhttp.responseText);
+                    console.log(this.weatherConditions);
+                    this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
+               }
+               else if(xmlhttp.status == 400) {
+                  //alert('There was an error 400')
+               }
+               else {
+                   //alert('something else other than 200 was returned')
+               }
+            }
+        }).bind(this);
+        xmlhttp.open("GET", `https://raw.githubusercontent.com/benna100/birthday-weather/gh-pages/src/js/most_typical_weather_conditions_${selectedCity}.json`, true);
+        xmlhttp.send();
+
     },
 
     renderBirthdayResults(){
@@ -159,10 +125,14 @@ const App = React.createClass({
         const dataForTable = birthdaysEachYear.map((birthday) => {
             let weatherCondition;
             let weatherLink;
-            if (this.selectedCity == 'copenhagen') {
+            if (this.selectedCity === 'copenhagen') {
                 weatherLink = `https://www.wunderground.com/history/airport/EKCH/${birthday.getFullYear()}/${addZero(monthIndex)}/${addZero(day)}/DailyHistory.html?req_city=Copenhagen&req_statename=Denmark`; 
-            }else {
-                weatherLink = `https://www.wunderground.com/history/airport/EKAH/${birthday.getFullYear()}/${addZero(monthIndex)}/${addZero(day)}/DailyHistory.html?req_city=Arhus&req_state=&req_statename=Denmark&reqdb.zip=&reqdb.magic=&reqdb.wmo=&MR=1`;
+            } else if (this.selectedCity === 'aarhus') {
+                weatherLink = `https://www.wunderground.com/history/airport/EKAH/${birthday.getFullYear()}/${addZero(monthIndex)}/${addZero(day)}/DailyHistory.html?req_city=Arhus&req_statename=Denmark`;
+            } else if (this.selectedCity === 'aalborg') {
+                weatherLink = `https://www.wunderground.com/history/airport/EKYT/${birthday.getFullYear()}/${addZero(monthIndex)}/${addZero(day)}/DailyHistory.html?req_city=Aalborg&req_statename=Denmark`;
+            } else if (this.selectedCity === 'odense') {
+                weatherLink = `https://www.wunderground.com/history/airport/EKOD/${birthday.getFullYear()}/${addZero(monthIndex)}/${addZero(day)}/DailyHistory.html?req_city=Odense&req_statename=Denmark`;
             }
             
             

@@ -197,8 +197,14 @@ b{
     border: 0;
     float: left;
     margin-right: 10px;
-    width: calc(50% - 10px);
+    width: calc(25% - 10px);
+    @media only screen and (max-width : 500px) {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
+
+
 
 .city-selector--active {
     background-color: rgb(253, 228, 58);
@@ -304,6 +310,15 @@ button,
         left: -52px;
         top: -20px;
     }
+}
+
+.bottom-text{
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2em;
+    width: 126px;
 }
 
 .table-container{
