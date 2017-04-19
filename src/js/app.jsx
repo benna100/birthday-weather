@@ -153,29 +153,8 @@ const App = React.createClass({
 
             
             const weatherConditionIconMapper = {
-                'Rain': 'wi wi-rain',
-                'Snow': 'wi wi-snow',
-                'Mostly Cloudy': 'wi wi-cloudy',
                 false: 'wi wi-cloudy',
                 true: 'wi wi-day-sunny',
-                'Fog': 'wi wi-fog',
-                'Mist': 'wi wi-fog',
-                'Partly Cloudy': 'wi wi-day-cloudy',
-                'Scattered Clouds': 'wi wi-day-cloudy',
-                'Ukendt': '',
-            };
-
-            const weatherConditionTranslator = {
-                'Clear': 'Solskin',
-                'Partly Cloudy': 'Pletvist skyet',
-                'Mostly Cloudy': 'Mest skyet',
-                'Scattered Clouds': 'Få skyer',
-                'Overcast': 'Overskyet',
-                'Fog': 'Tåge',
-                'Rain': 'Regn',
-                'Snow': 'Sne',
-                'Ukendt': 'Ukendt',
-                'Mist': 'Tåge',
             };
 
             const weatherConditionTranslatorBoolean = {

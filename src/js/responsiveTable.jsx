@@ -8,6 +8,11 @@ const ResponsiveTable = React.createClass({
         this.setState({buttonDisabled: true});
     },
     renderRow(weatherDate, i){
+        let weatherCondition = weatherDate.weatherCondition;
+        console.log(weatherCondition);
+        if(weatherCondition == undefined){
+            weatherCondition = 'Ukendt'
+        }
         if (weatherDate.date !== undefined) {
             let style = {
                 background: 'rgba(253, 228, 58, 0.0)',
@@ -20,7 +25,7 @@ const ResponsiveTable = React.createClass({
             return (
                 <tr key={i} style={style}>
                     <td>{weatherDate.date.getFullYear()}</td>
-                    <td>{weatherDate.weatherCondition}</td>
+                    <td>{weatherCondition}</td>
                     <td><a target="_blank" href={weatherDate.weatherLink}><i className={weatherDate.weatherIcon}></i></a></td>
                 </tr>
             )
