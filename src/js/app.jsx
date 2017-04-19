@@ -67,6 +67,7 @@ const App = React.createClass({
                 if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
                    if(xmlhttp.status == 200){
                         this.weatherConditions = JSON.parse(xmlhttp.responseText);
+                        console.log(this.weatherConditions);
                         this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
                    }
                    else if(xmlhttp.status == 400) {
@@ -148,19 +149,19 @@ const App = React.createClass({
         }
         // weatherConditions
         // 1997-07-18
-        function addZero(number){
-            if(number < 10){
+        function addZero(number) {
+            if(number < 10) {
                 return `0${number}`;
             }
             return number;
         }
 
-        const dataForTable = birthdaysEachYear.map((birthday) =>{
+        const dataForTable = birthdaysEachYear.map((birthday) => {
             let weatherCondition;
             let weatherLink;
-            if(this.selectedCity == 'copenhagen'){
+            if (this.selectedCity == 'copenhagen') {
                 weatherLink = `https://www.wunderground.com/history/airport/EKCH/${birthday.getFullYear()}/${addZero(monthIndex)}/${addZero(day)}/DailyHistory.html?req_city=Copenhagen&req_statename=Denmark`; 
-            }else{
+            }else {
                 weatherLink = `https://www.wunderground.com/history/airport/EKAH/${birthday.getFullYear()}/${addZero(monthIndex)}/${addZero(day)}/DailyHistory.html?req_city=Arhus&req_state=&req_statename=Denmark&reqdb.zip=&reqdb.magic=&reqdb.wmo=&MR=1`;
             }
             
@@ -185,8 +186,8 @@ const App = React.createClass({
                 'Rain': 'wi wi-rain',
                 'Snow': 'wi wi-snow',
                 'Mostly Cloudy': 'wi wi-cloudy',
-                'Overcast': 'wi wi-cloudy',
-                'Clear': 'wi wi-day-sunny',
+                false: 'wi wi-cloudy',
+                true: 'wi wi-day-sunny',
                 'Fog': 'wi wi-fog',
                 'Mist': 'wi wi-fog',
                 'Partly Cloudy': 'wi wi-day-cloudy',
@@ -206,9 +207,16 @@ const App = React.createClass({
                 'Ukendt': 'Ukendt',
                 'Mist': 'Tåge',
             };
+
+            const weatherConditionTranslatorBoolean = {
+                true: 'Solskin',
+                false: 'Ikke solskin',
+            };
+
+
             return {
                 date: birthday,
-                weatherCondition: weatherConditionTranslator[weatherCondition],
+                weatherCondition: weatherConditionTranslatorBoolean[weatherCondition],
                 weatherIcon: weatherConditionIconMapper[weatherCondition],
                 weatherLink: weatherLink
             }
