@@ -149,11 +149,11 @@ const BirthdayResult = React.createClass({
 
     },
     renderTwoArrows() {
-        let daysString;
+        let birthdayString;
         if (this.getSunshineDays() === 1) {
-            daysString = 'solskinsdag';
+            birthdayString = 'solskinsdag';
         } else {
-            daysString = 'solskinsdage';
+            birthdayString = 'solskinsdage';
         }
         let rightArrowStyling;
         if (this.getSunshineDays() == 1) {
@@ -177,7 +177,7 @@ const BirthdayResult = React.createClass({
             return (
                 <div className="left-arrow">
                     <div className="left-arrow__text">
-                        {this.getWeatherConditionDays() - this.getSunshineDays()} ikke <br /> {daysString} :(
+                        {this.getWeatherConditionDays() - this.getSunshineDays()} ikke <br /> {birthdayString} :(
                     </div>
                     <div className="left-arrow__svg"></div>
                     <div className="bottom-text">
@@ -196,7 +196,7 @@ const BirthdayResult = React.createClass({
                     </div>
                     <div className="right-arrow">
                         <div className="right-arrow__text" style={rightArrowStyling}>
-                            {this.getSunshineDays()} {daysString} :)
+                            {this.getSunshineDays()} {birthdayString} :)
                         </div>
                         <div className="right-arrow__svg"></div>
                     </div>
@@ -244,11 +244,15 @@ const BirthdayResult = React.createClass({
         }  
     },
     render() {
-        let daysString;
+        let birthdayString;
+        let dayString;
+
         if (this.getSunshineDays() === 1) {
-            daysString = 'fødselsdag';
+            birthdayString = 'fødselsdag';
+            dayString = 'dag';
         } else {
-            daysString = 'fødselsdage';
+            birthdayString = 'fødselsdage';
+            dayString = 'dage';
         }
         //({Math.round((Math.round(this.calculateSunshinePercentage() * 100) / 100) * 100)}% solskinsdage)
         return (
@@ -256,7 +260,7 @@ const BirthdayResult = React.createClass({
                 <hr/>
                 <div className="sunshine-days">
                     <div className="sunshine-days__numbers">{this.getSunshineDays()}</div>
-                    <div className="sunshine-days__text"><b>{daysString} med solskin</b><br/> <b></b> siden 1996. <a target="_blank" href={`https://www.facebook.com/dialog/feed?app_id=270494306352103&display=popup&caption=Se hvor mange fødselsdage med solskin du har haft!&link=https://benna100.github.io/birthday-weather/dist/&description=Dem med fødselsdag d. ${this.props.formattedbirthdayDate} har haft ${this.getSunshineDays()} dage med solskin&redirect_uri=https://benna100.github.io/birthday-weather/dist/`}>Del på Facebook</a></div>
+                    <div className="sunshine-days__text"><b>{birthdayString} med solskin</b><br/> <b></b> siden 1996. <a target="_blank" href={`https://www.facebook.com/dialog/feed?app_id=270494306352103&display=popup&caption=Se hvor mange fødselsdage med solskin du har haft!&link=https://benna100.github.io/birthday-weather/dist/&description=Dem med fødselsdag d. ${this.props.formattedbirthdayDate} har haft ${this.getSunshineDays()} ${dayString} med solskin&redirect_uri=https://benna100.github.io/birthday-weather/dist/`}>Del på Facebook</a></div>
                 </div>
                 <br/>
                 

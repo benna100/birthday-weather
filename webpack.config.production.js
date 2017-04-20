@@ -87,7 +87,7 @@ module.exports = {
         new HtmlWebpackInlineSourcePlugin(),
         new CopyWebpackPlugin([
             // Copy directory contents to {output}/to/directory/
-            { from: 'src/svg', to: 'svg' },
+            { from: 'src/images', to: 'images' },
         ]),
                 /*
                 new CommonsChunkPlugin({

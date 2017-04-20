@@ -35,7 +35,7 @@ const BirthdayInput = React.createClass({
         }).bind(this), 70);
         this.props.handleResultClick(this.refs.dayInput, this.refs.monthInput, this.refs.yearInput, this.selectedCity);
     },
-    citySelector(refName, event){
+    citySelector(refName, event) {
         event.preventDefault();
         this.selectedCity = refName;
         this.refs.copenhagen_button.classList.remove('city-selector--active');
