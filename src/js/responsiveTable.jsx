@@ -24,7 +24,7 @@ const ResponsiveTable = React.createClass({
             return (
                 <tr key={i} style={style}>
                     <td>{weatherDate.date.getFullYear()}</td>
-                    <td>{weatherCondition} <a target="_blank" href={weatherDate.weatherLink}><i className={weatherDate.weatherIcon}></i></a></td>
+                    <td><a target="_blank" href={weatherDate.weatherLink}>{weatherCondition} <i className={weatherDate.weatherIcon}></i></a></td>
                   
                 </tr>
             )
