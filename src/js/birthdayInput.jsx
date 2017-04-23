@@ -48,7 +48,7 @@ const BirthdayInput = React.createClass({
         return (
           <div className="birthday-input">
             <span className="birthday-date-text">
-                Jeg er født den
+                Min fødselsdag er den
             </span>
             <form onSubmit={this.handleResultClick}>
                 <div className="birthdaysInput clearfix">
@@ -69,7 +69,7 @@ const BirthdayInput = React.createClass({
                         <option value="December">December</option>
                     </select>
                     <input type="number" min="1900" placeholder="År (fx 1989)" ontouchstart="" ref="yearInput" className="yearInput" onChange={this.handleChange} />
-                    <span className="city-chooser-text">Den <b>by der ligger tættest</b> på mig er:</span>
+                    <span className="city-chooser-text">Jeg har haft <b>flest fødselsdage tæt på</b></span>
                     <button className="city-selector" ontouchstart="" ref="copenhagen_button" onClick={(event) => { this.citySelector("copenhagen", event); this.handleChange(event);}}>København</button>
                     <button className="city-selector" ontouchstart="" ref="aarhus_button" onClick={(event) => { this.citySelector("aarhus", event); this.handleChange(event);}}>Århus</button>
                     <button className="city-selector" ontouchstart="" ref="aalborg_button" onClick={(event) => { this.citySelector("aalborg", event); this.handleChange(event);}}>Ålborg</button>
@@ -78,7 +78,7 @@ const BirthdayInput = React.createClass({
                 </div>
                 <br />
                 <button ref="submitButton" className="clearfix submit-button" disabled={!this.state.buttonDisabled}>
-                    Se solskingdage!
+                    Se solskins-fødselsdage!
                 </button>
             </form>
           </div>

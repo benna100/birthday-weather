@@ -102,17 +102,17 @@ const App = React.createClass({
         if(year < 1996){
             year = 1996;
         }
-        var now = new Date();
-        var birthdaysEachYear = [];
-
-        var start = new Date(`${day}/${monthIndex - 1}/${year}`);
-        var end = new Date();
+        const birthdaysEachYear = [];
+        let start = new Date(year, monthIndex - 1, day);
+        const end = new Date();
         let newDate;
-        let i = year;
-        for (i; i < end.getFullYear(); i++){
-            newDate = new Date(i,monthIndex,day);
-            birthdaysEachYear.push(newDate);
+        while (start < end) {
+            birthdaysEachYear.push(start);
+            newDate = new Date(start.getFullYear() + 1, monthIndex - 1, day);
+            start = new Date(newDate);
         }
+
+
         // weatherConditions
         // 1997-07-18
         function addZero(number) {
@@ -123,6 +123,7 @@ const App = React.createClass({
         }
 
         const dataForTable = birthdaysEachYear.map((birthday) => {
+
             let weatherCondition;
             let weatherLink;
             if (this.selectedCity === 'copenhagen') {
@@ -141,8 +142,8 @@ const App = React.createClass({
             if(formattedDate in this.weatherConditions){
                 weatherCondition = this.weatherConditions[formattedDate];
             }
-
             
+            // a little messy data
             if(typeof weatherCondition === 'undefined'){
                 weatherCondition = 'Ukendt';
             }
@@ -150,10 +151,9 @@ const App = React.createClass({
             if(weatherCondition === ''){
                 weatherCondition = 'Ukendt';
             }
-
             
             const weatherConditionIconMapper = {
-                false: 'wi wi-cloudy',
+                false: '',
                 true: 'wi wi-day-sunny',
             };
 
@@ -168,7 +168,7 @@ const App = React.createClass({
                 weatherCondition: weatherConditionTranslatorBoolean[weatherCondition],
                 weatherIcon: weatherConditionIconMapper[weatherCondition],
                 weatherLink: weatherLink
-            }
+            };
         });
 
         this.setState(

@@ -226,7 +226,7 @@ const BirthdayResult = React.createClass({
                     <br/>
                     <div className="table-container">
                         <div className="table-container__your-weather">
-                            Hvornår har solen skinnet d. {`${this.props.formattedbirthdayDate}`}
+                            Se alle dine fødselsdage
                         </div>
                         <ResponsiveTable rows={this.props.setDataForTable.reverse()}/>
                         {this.noMoreData()}
@@ -260,7 +260,7 @@ const BirthdayResult = React.createClass({
                 <hr/>
                 <div className="sunshine-days">
                     <div className="sunshine-days__numbers">{this.getSunshineDays()}</div>
-                    <div className="sunshine-days__text"><b>{birthdayString} med solskin</b><br/> <b></b> siden 1996. <a target="_blank" href={`https://www.facebook.com/dialog/feed?app_id=270494306352103&display=popup&caption=Se hvor mange fødselsdage med solskin du har haft!&link=https://benna100.github.io/birthday-weather/dist/&description=Dem med fødselsdag d. ${this.props.formattedbirthdayDate} har haft ${this.getSunshineDays()} ${dayString} med solskin&redirect_uri=https://benna100.github.io/birthday-weather/dist/`}>Del på Facebook</a></div>
+                    <div className="sunshine-days__text"><b>{birthdayString} med solskin</b><br/> <b></b> siden 1996. <a target="_blank" href={`https://www.facebook.com/dialog/feed?app_id=270494306352103&display=popup&caption=Se hvor mange fødselsdage med solskin du har haft!&link=https://benna100.github.io/birthday-weather/dist/&description=Du har haft ${this.getSunshineDays()} ${dayString} med solskin&redirect_uri=https://benna100.github.io/birthday-weather/dist/`}>Del på Facebook</a></div>
                 </div>
                 <br/>
                 
@@ -274,7 +274,7 @@ const BirthdayResult = React.createClass({
                 <br/>
                 <div className="cool-project">
                     <p>
-                        Hvis du har et fedt/skørt/sjovt/kreativt<br/> projekt så skriv til mig på: <br/> <span className="leftRight first">👉</span><span className="upDown first">👇</span>  <a href="mailto:benjamin.dals.hughes@gmail.com" target="_top">benjamin.dals.hughes@gmail.com</a>  <span className="leftRight">👈</span><span className="upDown">👆</span>
+                        Hvis du har en ide til et fedt/skørt/sjovt/kreativt<br/> projekt så skriv til mig: <br/> <span className="leftRight first">👉</span><span className="upDown first">👇</span>  <a href="mailto:benjamin.dals.hughes@gmail.com" target="_top">benjamin.dals.hughes@gmail.com</a>  <span className="leftRight">👈</span><span className="upDown">👆</span>
                     </p>
                 </div>
 
@@ -283,19 +283,19 @@ const BirthdayResult = React.createClass({
                 </h1>
                 <p className="explanation-description">
                     <br/>
-                    Denne app er et hyggesideprojekt der kom til over en frokost og et krea mindset :) For kunne det virkelig passe, at man ikke kunne se hvor mange dage, solen havde skinnet på ens fødselsdag!? Det måtte der gøres noget ved!
+                    Denne app er et hyggeprojekt, der kom til over en frokost. Den dag skinnede solen og en af mine kollegaers venner havde fødselsdag. Så måtte han jo have haft et godt år, haha. Men hvor mange fødselsdage med solskin havde jeg egentlig haft? Det kunne da være fedt at få at vide. For kunne det virkelig passe, at man ingen steder kunne se hvor mange dage, solen havde skinnet på ens fødselsdag!? Det måtte der gøres noget ved!
                     <br/>
                     <br/>
-                    Vejrdata kommer fra <a href="https://www.wunderground.com/" target="_blank">https://www.wunderground.com/</a>. For at finde antal solskinsdage, ser jeg om der på et tidspunkt af en dag mellem kl 6 om morgenen og 10 om aftenen har været klart. Hvis der har det, tæller jeg det som en solskinsdag. Man kunne nok lave noget lidt smartere der tjekker om solen er stået op, men det nåede ikke lige med i denn omgang. 
+                    Vejrdata kommer fra <a href="https://www.wunderground.com/" target="_blank">https://www.wunderground.com/</a>. For at finde antal af solskinsdage, ser jeg om det på et tidspunkt har været klart mellem kl 6 om morgenen og 10 om aftenen. Hvis det har været klart, tæller jeg det som en solskinsdag. Det kunne være fedt at få den forbedret med hvad tid solen står op etc etc. Man kunne nok lave noget lidt smartere der tjekker om solen er stået op, men det nåede ikke lige med i denn omgang. 
                     <br/>
                     <br/>
-                    Analysen bliver lavet med <b>python</b> der først henter de seneste vejrbeskrivelser ned vha <b>BeautifulSoup</b>. Dernæst bliver vejrbeskrivelserne analyseret for, at finde den mest optrædende. De python scripts ligger på en <b>Ubuntu server</b> på <b>Digital Ocean</b>, som via et <b>dagligt cron job</b> opdaterer vejrdata, og dernæst lægger data op på <b>Github</b>.
+                    Analysen bliver lavet med <b>Python</b>, der først henter de seneste vejrbeskrivelser ned vha biblioteket <b>BeautifulSoup</b>. Dernæst bliver vejrbeskrivelserne analyseret, for at finde dage med klart vejr. De Python scripts der henter og analyserer vejrdata ligger på en <b>Ubuntu server</b> på <b>Digital Ocean</b>, som via et <b>dagligt cron job</b> opdaterer vejrdata og dernæst lægger data i JSON format op på <b>Github</b>.
                     <br/>
                     <br/>
-                    Selve webappen er bygget med <b>react</b>, <b>webpack</b>, <b>npm</b> og <b>BEM CSS methodology</b>. Data bliver <b>asynkront hentet via javascript.</b> Til sidst er webappen krydret med lidt <b>hjemmelavet SVG</b>, <b>en emojii</b>, et <b>fantastisk flot cirkeldiagram</b> og nogle lækre <b>skytransitions</b> :)
+                    Selve webappen er bygget med <b>react</b>, <b>webpack</b>, <b>npm</b> og bruger <b>BEM CSS methodology</b>. Data bliver <b>asynkront hentet via javascript.</b> Til sidst er webappen krydret med lidt <b>hjemmelavet SVG</b>, <b>et par pege-emojis</b>, et <b>fantastisk flot cirkeldiagram</b> og nogle lækre <b>sky animationer</b> :)
                     <br/>
                     <br/>
-                    Webappen er fokuseret på brugeren og da det er et hyggesideprojekt, er der ikke lagt super meget tid i perfekt kode.
+                    Hvis du har brug for en person der kan gå fra ide til løsning, og som kan lave digitale prototyper og visualiseringer. Så tag fat i mig :)
                 </p>
 
                 <br/>
@@ -304,6 +304,12 @@ const BirthdayResult = React.createClass({
                         Følg mig på <a target="_blank" href="https://twitter.com/DalsHughes">Twitter</a> eller <a target="_blank" href="https://www.linkedin.com/in/benjamindalshughes/">Linkedin</a>
                     </p>
                 </div>
+                {/*
+                <div className="me">
+                    <div className="gradient"></div>
+                </div>
+                */}
+
             </div>
         )
     }

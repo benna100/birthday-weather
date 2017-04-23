@@ -9,7 +9,6 @@ const ResponsiveTable = React.createClass({
     },
     renderRow(weatherDate, i){
         let weatherCondition = weatherDate.weatherCondition;
-        console.log(weatherCondition);
         if(weatherCondition == undefined){
             weatherCondition = 'Ukendt'
         }
@@ -25,8 +24,8 @@ const ResponsiveTable = React.createClass({
             return (
                 <tr key={i} style={style}>
                     <td>{weatherDate.date.getFullYear()}</td>
-                    <td>{weatherCondition}</td>
-                    <td><a target="_blank" href={weatherDate.weatherLink}><i className={weatherDate.weatherIcon}></i></a></td>
+                    <td>{weatherCondition} <a target="_blank" href={weatherDate.weatherLink}><i className={weatherDate.weatherIcon}></i></a></td>
+                  
                 </tr>
             )
         }
@@ -38,8 +37,7 @@ const ResponsiveTable = React.createClass({
                     <thead>
                     <tr>
                         <th>År</th>
-                        <th>Vejrbeskrivelse</th>
-                        <th>vejrikon</th>
+                        <th>Solskin/ikke solskin</th>
                     </tr>
                     </thead>
                     <tbody>
