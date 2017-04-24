@@ -27,6 +27,13 @@ const BirthdayResult = React.createClass({
 
         return parseFloat((goodBoyDays / this.getWeatherConditionDays()));
     },
+    renderSinceYear(){
+        let sinceString = '';
+        if(this.props.setDataForTable.length > 20){
+            sinceString = ' siden 1996';
+        }
+        return sinceString;
+    },
     noMoreData() {
         if(this.props.setDataForTable.length > 20){
             return (
@@ -263,7 +270,7 @@ const BirthdayResult = React.createClass({
                 <hr/>
                 <div className="sunshine-days">
                     <div className="sunshine-days__numbers">{this.getSunshineDays()}</div>
-                    <div className="sunshine-days__text"><b>{birthdayString} med solskin</b><br/> <b></b> siden 1996. <a target="_blank" href={`https://www.facebook.com/dialog/feed?app_id=270494306352103&display=popup&caption=Se hvor mange fødselsdage med solskin du har haft!&link=https://benna100.github.io/birthday-weather/dist/&description=Du har haft ${this.getSunshineDays()} ${dayString} med solskin&redirect_uri=https://benna100.github.io/birthday-weather/dist/`}>Del på Facebook</a></div>
+                    <div className="sunshine-days__text"><b>{birthdayString} med solskin</b><br/>{this.renderSinceYear()} <a target="_blank" href={`https://www.facebook.com/dialog/feed?app_id=270494306352103&display=popup&caption=Se hvor mange fødselsdage med solskin du har haft!&link=https://benna100.github.io/birthday-weather/dist/&description=Du har haft ${this.getSunshineDays()} ${dayString} med solskin&redirect_uri=https://benna100.github.io/birthday-weather/dist/`}>Del på Facebook</a></div>
                 </div>
                 <br/>
                 
