@@ -37,6 +37,10 @@ const App = React.createClass({
     },
 
     seeResults(dayInput, monthInput, yearInput, selectedCity){
+        let dayinputValue = dayInput.value;
+        if(dayinputValue[0] == '0'){
+            dayinputValue = dayinputValue[1];
+        }
         if(parseInt(yearInput.value) >= parseInt(1900)) {
             this.selectedCity = selectedCity;
             render(<div></div>, document.getElementById('birthday-result'));
@@ -68,7 +72,7 @@ const App = React.createClass({
                    if(xmlhttp.status == 200){
                         this.weatherConditions = JSON.parse(xmlhttp.responseText);
                         console.log(this.weatherConditions);
-                        this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
+                        this.createDataForTable(dayinputValue, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
                    }
                    else if(xmlhttp.status == 400) {
                       //alert('There was an error 400')
