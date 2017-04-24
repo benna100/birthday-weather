@@ -37,48 +37,53 @@ const App = React.createClass({
     },
 
     seeResults(dayInput, monthInput, yearInput, selectedCity){
-        this.selectedCity = selectedCity;
-        render(<div></div>, document.getElementById('birthday-result'));
+        if(parseInt(yearInput.value) >= parseInt(1900)) {
+            this.selectedCity = selectedCity;
+            render(<div></div>, document.getElementById('birthday-result'));
             
-        this.setState({
-            showLoaderStyle: {
-                display: 'block'
+            this.setState({
+                showLoaderStyle: {
+                    display: 'block'
+                }
+            });
+
+            //http://95.85.11.203/most_typical_weather_conditions_copenhagen.json
+            /*
+            require(["./most_typical_weather_conditions_copenhagen.json"], (function(weatherConditions) {
+                this.weatherConditions = weatherConditions;
+                this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
+            }).bind(this));
+            */
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
-        });
-
-        //http://95.85.11.203/most_typical_weather_conditions_copenhagen.json
-        /*
-        require(["./most_typical_weather_conditions_copenhagen.json"], (function(weatherConditions) {
-            this.weatherConditions = weatherConditions;
-            this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
-        }).bind(this));
-        */
-
-        var xmlhttp;
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = (function() {
+                if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+                   if(xmlhttp.status == 200){
+                        this.weatherConditions = JSON.parse(xmlhttp.responseText);
+                        console.log(this.weatherConditions);
+                        this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
+                   }
+                   else if(xmlhttp.status == 400) {
+                      //alert('There was an error 400')
+                   }
+                   else {
+                       //alert('something else other than 200 was returned')
+                   }
+                }
+            }).bind(this);
+            xmlhttp.open("GET", `https://raw.githubusercontent.com/benna100/birthday-weather/gh-pages/src/js/most_typical_weather_conditions_${selectedCity}.json`, true);
+            xmlhttp.send();
         } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            alert('Årstallet skal skrives som fx: 1996');
         }
-        xmlhttp.onreadystatechange = (function() {
-            if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
-               if(xmlhttp.status == 200){
-                    this.weatherConditions = JSON.parse(xmlhttp.responseText);
-                    console.log(this.weatherConditions);
-                    this.createDataForTable(dayInput.value, monthInput.selectedIndex, yearInput.value, monthInput.options[monthInput.selectedIndex].value);
-               }
-               else if(xmlhttp.status == 400) {
-                  //alert('There was an error 400')
-               }
-               else {
-                   //alert('something else other than 200 was returned')
-               }
-            }
-        }).bind(this);
-        xmlhttp.open("GET", `https://raw.githubusercontent.com/benna100/birthday-weather/gh-pages/src/js/most_typical_weather_conditions_${selectedCity}.json`, true);
-        xmlhttp.send();
+        
 
     },
 
