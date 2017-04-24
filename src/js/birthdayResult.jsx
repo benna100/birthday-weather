@@ -200,8 +200,11 @@ const BirthdayResult = React.createClass({
                         </div>
                         <div className="right-arrow__svg"></div>
                     </div>
+                    <div className="bottom-text-number">
+                        {Math.round((Math.round(this.calculateSunshinePercentage() * 100) / 100) * 100)}%
+                    </div>
                     <div className="bottom-text">
-                        {Math.round((Math.round(this.calculateSunshinePercentage() * 100) / 100) * 100)}% solskinsdage
+                        solskinsdage
                     </div>
                 </div>
             )
