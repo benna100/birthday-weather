@@ -72,7 +72,7 @@ const BirthdayInput = React.createClass({
                     <span className="city-chooser-text">Jeg har haft <b>flest fødselsdage tæt på</b></span>
                     <button className="city-selector" ontouchstart="" ref="copenhagen_button" onClick={(event) => { this.citySelector("copenhagen", event); this.handleChange(event);}}>København</button>
                     <button className="city-selector" ontouchstart="" ref="aarhus_button" onClick={(event) => { this.citySelector("aarhus", event); this.handleChange(event);}}>Århus</button>
-                    <button className="city-selector" ontouchstart="" ref="aalborg_button" onClick={(event) => { this.citySelector("aalborg", event); this.handleChange(event);}}>Ålborg</button>
+                    <button className="city-selector" ontouchstart="" ref="aalborg_button" onClick={(event) => { this.citySelector("aalborg", event); this.handleChange(event);}}>Aalborg</button>
                     <button className="city-selector" ontouchstart="" ref="odense_button" onClick={(event) => { this.citySelector("odense", event); this.handleChange(event);}}>Odense</button>
                 
                 </div>
