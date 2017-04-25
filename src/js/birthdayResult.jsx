@@ -48,16 +48,31 @@ const BirthdayResult = React.createClass({
         setTimeout((function() {
         var data = {
             size: 230,
-            sectors: [
-                {
-                    percentage: this.calculateSunshinePercentage(),
-                    label: 'Thing 1',
-                },
-                {
-                    percentage: 1 - this.calculateSunshinePercentage(),
-                    label: "Thing Two",
-                },
-            ]
+            sectors: (function(){
+                if(this.calculateSunshinePercentage() !== 1){
+                    return [
+                        {
+                            percentage: this.calculateSunshinePercentage(),
+                            label: 'Thing 1',
+                        },
+                        {
+                            percentage: 1 - this.calculateSunshinePercentage(),
+                            label: "Thing Two",
+                        },
+                    ];
+                }else{
+                    return [
+                        {
+                            percentage: 99.99999,
+                            label: 'Thing 1',
+                        },
+                        {
+                            percentage: 0.00001,
+                            label: "Thing Two",
+                        },
+                    ];
+                }
+            }).bind(this)()
         }
 
         function calculateSectors( data ) {
